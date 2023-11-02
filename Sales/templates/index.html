@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+	<meta name="robots" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="W3crm:Customer Relationship Management Admin Bootstrap 5 Template">
+	<meta property="og:title" content="W3crm:Customer Relationship Management Admin Bootstrap 5 Template">
+	<meta property="og:description" content="W3crm:Customer Relationship Management Admin Bootstrap 5 Template">
+	<meta property="og:image" content="social-image.png">
+	<meta name="format-detection" content="telephone=no">
+	
+	<!-- PAGE TITLE HERE -->
+	<title> Manager Dashboard</title>
+	<!-- FAVICONS ICON -->
+	<link rel="shortcut icon" type="image/png" href="../static/images/favicon.png">
+	
+	<link href="../static/../static/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+	<link href="../static/vendor/swiper/css/swiper-bundle.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.css">
+	<link href="../static/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+	<link href="../static/vendor/jvmap/jquery-jvectormap.css" rel="stylesheet">
+	<link href="../../cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css" rel="stylesheet">
+	<link href="../static/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+	
+	<!-- tagify-css -->
+	<link href="../static/vendor/tagify/dist/tagify.css" rel="stylesheet">
+	
+	<!-- Style css -->
+    <link href="../static/style.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body data-typography="poppins" data-theme-version="light" data-layout="vertical" data-nav-headerbg="black" data-headerbg="color_1">
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+		<div class="lds-ripple">
+			<div></div>
+			<div></div>
+		</div>
+    </div>
+   
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <a href="index.html" class="brand-logo">
+				<img src="../static/images/olatech_logo.png" width="180" >
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span>
+					<span class="line"></span>
+					<span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+		
+		
+		
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="deznav">
+            <div class="deznav-scroll">
+				<ul class="metismenu" id="menu">
+					<li class="menu-title">Lead Management OLA TECHS</li>
+					
+					<li><a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
+						<div class="menu-icon">
+							<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M14.4065 14.8714H7.78821" stroke="#888888" stroke-linecap="round" stroke-linejoin="round"/>
+								<path d="M14.4065 11.0338H7.78821" stroke="#888888" stroke-linecap="round" stroke-linejoin="round"/>
+								<path d="M10.3137 7.2051H7.78827" stroke="#888888" stroke-linecap="round" stroke-linejoin="round"/>
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M14.5829 2.52066C14.5829 2.52066 7.54563 2.52433 7.53463 2.52433C5.00463 2.53991 3.43805 4.20458 3.43805 6.74374V15.1734C3.43805 17.7254 5.01655 19.3965 7.56855 19.3965C7.56855 19.3965 14.6049 19.3937 14.6168 19.3937C17.1468 19.3782 18.7143 17.7126 18.7143 15.1734V6.74374C18.7143 4.19174 17.1349 2.52066 14.5829 2.52066Z" stroke="#888888" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</div>	
+
+							<span class="nav-text">Forms</span>
+						</a>
+						<ul aria-expanded="false">
+							<li><a href="{% url 'customer_list' %}">Sales Lead</a></li>							
+							<li><a href="{% url 'branch_list' %}">Branch</a></li>
+							<li><a href="{% url 'manager_list' %}">Manager List</a></li>
+							<li><a href="{% url 'executive_list' %}">Executive List</a></li>							
+							<li><a href="{% url 'staff'%}">Staff</a></li>
+
+						</ul>
+					</li>
+					<li><a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
+						<div class="menu-icon">
+							<svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M6.46932 12.2102H0.693665" stroke="#888888" stroke-linecap="round" stroke-linejoin="round"/>
+							<path d="M9.04547 3.32535H14.8211" stroke="#888888" stroke-linecap="round" stroke-linejoin="round"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M4.99912 3.27573C4.99912 2.08805 4.02914 1.125 2.8329 1.125C1.63667 1.125 0.666687 2.08805 0.666687 3.27573C0.666687 4.46342 1.63667 5.42647 2.8329 5.42647C4.02914 5.42647 4.99912 4.46342 4.99912 3.27573Z" stroke="#888888" stroke-linecap="round" stroke-linejoin="round"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M15.3333 12.1743C15.3333 10.9866 14.3641 10.0235 13.1679 10.0235C11.9709 10.0235 11.0009 10.9866 11.0009 12.1743C11.0009 13.3619 11.9709 14.325 13.1679 14.325C14.3641 14.325 15.3333 13.3619 15.3333 12.1743Z" stroke="#888888" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</div>
+						<span class="nav-text">Table</span>
+						</a>
+						<ul aria-expanded="false">
+							<li><a href="{% url 'user_list' %}">User's</a></li>
+							<li><a href="{% url 'role_display' %}">Roles</a></li>
+						</ul>
+					</li>
+					
+				</ul>
+				
+			</div>
+        </div>
+		
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+		
+		<!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <!-- row -->	
+			<div class="page-titles">
+				<ol class="breadcrumb">
+					<li><h5 class="bc-title">Dashboard</h5></li>
+					<!-- <li class="breadcrumb-item"><a href="javascript:void(0)">
+						<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M2.125 6.375L8.5 1.41667L14.875 6.375V14.1667C14.875 14.5424 14.7257 14.9027 14.4601 15.1684C14.1944 15.4341 13.8341 15.5833 13.4583 15.5833H3.54167C3.16594 15.5833 2.80561 15.4341 2.53993 15.1684C2.27426 14.9027 2.125 14.5424 2.125 14.1667V6.375Z" stroke="#2C2C2C" stroke-linecap="round" stroke-linejoin="round"/>
+							<path d="M6.375 15.5833V8.5H10.625V15.5833" stroke="#2C2C2C" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+						Home </a>
+					</li> -->
+					<!-- <li class="breadcrumb-item active"><a href="javascript:void(0)">Dashboard</a></li> -->
+				</ol>
+				<!-- <a class="text-primary fs-13" data-bs-toggle="offcanvas" href="#offcanvasExample1" role="button" aria-controls="offcanvasExample1">+ Add Task</a> -->
+			</div>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xl-9 wid-100">
+						<div class="row">
+							<div class="col-xl-3 col-sm-6">
+								<div class="card chart-grd same-card">
+									<div class="card-body depostit-card p-0">
+										<div class="depostit-card-media d-flex justify-content-between pb-0">
+											<div>
+												<h6>Total Amount</h6>
+												<h3>₹ {{ total_amount }}</h3><br>
+												
+											</div>
+											<div class="icon-box bg-danger-light">
+												<img src="../static/images/rupee.png" width="11px">
+											</div>
+											<div >
+												
+											</div>
+										</div>
+										<div id="NewCustomers"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-3 col-sm-6">
+								<div class="card same-card">
+									<div class="card-body d-flex align-items-center py-2">
+										<!-- <ul class="project-list">
+											<li><h6>List of Clients</h6></li>
+											<li>
+												<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<rect width="10" height="10" rx="3" fill="#FF6384"/>
+												</svg>
+												Converted
+											</li>
+											<li>
+												<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<rect width="10" height="10" rx="3" fill="var(--primary)"/>
+												</svg>
+												Interested
+											</li>
+											<li>
+												<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<rect width="10" height="10" rx="3" fill="var(--secondary)"/>
+												</svg>
+												Declined
+											</li>
+										</ul> -->
+									<canvas id="myDoughnutChart" style="width: 245px; height: 150px;"></canvas>
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-xl-3 col-sm-6">
+								<div class="card chart-grd same-card">
+									<div class="card-body depostit-card p-0">
+										<div class="depostit-card-media d-flex justify-content-between pb-0">
+											<div>
+												<h6> Total Balance Payment </h6>
+											
+												<h3> ₹ {{ total_balance_payment }}</h3><br>
+											
+											</div>
+											<div class="icon-box bg-danger-light">
+												<img src="../static/images/rupee.png" width="11px">
+											</div>
+										</div>
+										<div id="NewExperience"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-3 col-sm-6 same-card">
+								<div class="card">
+									<div class="card-body depostit-card">
+										<div class="depostit-card-media d-flex justify-content-between style-1">
+											<div>
+												<h6>Monthly Balance Payment</h6>
+												<h3>₹{{ total_balance_payment_month }}</h3>
+											</div>
+											<div class="icon-box bg-danger-light">
+												<img src="../static/images/rupee.png" width="11px">
+											</div>
+											<div >
+							
+											</div>
+										</div>
+										<div class="progress-box mt-0">
+											<!-- <div class="d-flex justify-content-between">
+												<p class="mb-0">Tasks Not Finished</p>
+												<p class="mb-0">20/28</p>
+											</div> -->
+											<div class="progress">
+												<div class="progress-bar bg-primary" style="width:50%; height:5px; border-radius:4px;" role="progressbar"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-8">
+								<div class="card overflow-hidden">
+									<div class="card-header border-0 pb-0 flex-wrap">
+										<h4 class="heading mb-0">Clients Overview</h4>
+										<!-- <ul class="nav nav-pills mix-chart-tab" id="pills-tab" role="tablist">
+										  <li class="nav-item" role="presentation">
+											<button class="nav-link active" data-series="week" id="pills-week-tab" data-bs-toggle="pill" data-bs-target="#pills-week" type="button" role="tab"  aria-selected="true">Week</button>
+										  </li>
+										  <li class="nav-item" role="presentation">
+											<button class="nav-link" data-series="month" id="pills-month-tab" data-bs-toggle="pill" data-bs-target="#pills-month" type="button" role="tab"  aria-selected="false">Month</button>
+										  </li>
+										  <li class="nav-item" role="presentation">
+											<button class="nav-link" data-series="year" id="pills-year-tab" data-bs-toggle="pill" data-bs-target="#pills-year" type="button" role="tab"  aria-selected="false">Year</button>
+										  </li>
+										   <li class="nav-item" role="presentation">
+											<button class="nav-link" data-series="all" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-selected="false">All</button>
+										  </li>
+										</ul> -->
+									</div>
+									<!-- <canvas id="mixedChart"></canvas> -->
+					
+									<div class="card-body  p-0">
+											<div id="overiewChart"></div>
+											
+                          <!-- <canvas id="myChart" style="width: 200px; height: 150px;"></canvas>  -->
+						  <!-- <canvas id="mixedChart"></canvas> -->
+										
+										<div class="ttl-project">
+											<div class="pr-data">
+												<h5 class="text-success"> {{converted_count}}</h5>
+												<span>Converted Clients</span>
+											</div>
+											<div class="pr-data">
+												<h5 class="text-primary">{{interested_count }}</h5>
+												<span>Interested Clients</span>
+											</div>
+											<div class="pr-data">
+												<h5>{{decline_count }}</h5>
+												<span>Declined Clients</span>
+											</div>
+											<div class="pr-data">
+												<h5 class="text-primary"> {{ to_be_called_count }}</h5>
+												<span>TBR Clients</span>
+
+											</div>
+
+										</div>
+									</div>
+
+								</div>
+							</div>
+							<div class="col-xl-4">
+								<div class="card">
+									
+									<div class="card-body p-0">
+										<div class="dt-do-bx">
+											<div class="draggable-zone dropzoneContainer to-dodroup dz-scroll">
+												
+												
+										
+												
+												<div class="sub-card draggable-handle draggable">
+													<div class="d-items">
+														<div class="d-flex justify-content-between flex-wrap">
+															<div class="d-items-2">
+																<div>
+																	
+																</div>
+																<div>
+																	
+																</div>
+															</div>
+															<div>
+																
+															</div>
+
+														</div>	
+													</div>
+													
+													<canvas id="myChart"  style="width: 250px; height: 300px;"></canvas>
+
+												</div>
+
+
+
+											</div>
+										
+										</div>
+										
+									</div>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-3 t-earn">
+						<div class="card">
+							<div class="card-header border-0 pb-0">
+								<h3 class="heading mb-0"> <b> Total Contract</b> </h3>
+							</div>
+							<div class="card-body px-0 overflow-hidden">
+								<div class="total-earning">
+									<h3>{{customer_count_data.0.count}}</h3>
+
+									<div id="lineChart"></div>
+
+									<!-- <canvas id="lineChart"  style="width: 330px; height: 350px;"></canvas> -->
+
+								</div>	
+							</div>
+						</div>
+					</div>
+				</div>			
+					
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="../static/vendor/global/global.min.js"></script>
+	<script src="../static/vendor/chart.js/Chart.bundle.min.js"></script>
+	<script src="../static/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+	<script src="../static/vendor/apexchart/apexchart.js"></script>
+	
+	<!-- Dashboard 1 -->
+	<script src="../static/js/dashboard/dashboard-1.js"></script>
+	<script src="../static/vendor/draggable/draggable.js"></script>
+	
+	
+	<!-- tagify -->
+	<script src="../static/vendor/tagify/dist/tagify.js"></script>
+	 
+	<script src="../static/vendor/datatables/js/jquery.dataTables.min.js"></script>
+	<script src="../static/vendor/datatables/js/dataTables.buttons.min.js"></script>
+	<script src="../static/vendor/datatables/js/buttons.html5.min.js"></script>
+	<script src="../static/vendor/datatables/js/jszip.min.js"></script>
+	<script src="../static/js/plugins-init/datatables.init.js"></script>
+   
+	<!-- Apex Chart -->
+	
+	<script src="../static/vendor/bootstrap-datetimepicker/js/moment.js"></script>
+	<script src="../static/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+	
+
+	<!-- Vectormap -->
+    <script src="../static/vendor/jqvmap/js/jquery.vmap.min.js"></script>
+    <script src="../static/vendor/jqvmap/js/jquery.vmap.world.js"></script>
+    <script src="../static/vendor/jqvmap/js/jquery.vmap.usa.js"></script>
+    <script src="../static/js/custom.js"></script>
+	<script src="../static/js/deznav-init.js"></script>
+	<script src="../static/js/demo.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+	
+	<script>
+		// Get data from the context passed by the view
+		var labels = {{ combinations_data_key | safe }};
+		var counts = {{ combinations_data_data | safe }};
+	
+		// Filter out "ok" and "none" labels and their corresponding counts
+		var filteredLabels = [];
+		var filteredCounts = [];
+		for (var i = 0; i < labels.length; i++) {
+			if (labels[i] !== "ok" && labels[i] !== "none") {
+				filteredLabels.push(labels[i]);
+				filteredCounts.push(counts[i]);
+			}
+		}
+	
+		// Create a doughnut chart
+		var ctx = document.getElementById("myDoughnutChart").getContext('2d');
+		var myDoughnutChart = new Chart(ctx, {
+			type: 'doughnut',
+			data: {
+				labels: filteredLabels,
+				datasets: [{
+					data: filteredCounts,
+					backgroundColor: ["#FF6384", "MediumSeaGreen", "#FFCE56", "#4BC0C0", "red", 'purple', 'green', 'blue']
+				}]
+			},
+			options: {
+				// You can add options here, such as a title or legend
+				responsive:false,
+				// maintainAspectRatio: false,
+				legend: {
+				display: true,
+				position: 'right',
+			  }
+			}
+		});
+	</script>
+	<!-- <script>
+		document.addEventListener("DOMContentLoaded", function () {
+		  // Get the context of the canvas element
+		  var ctx = document.getElementById('lineChart').getContext('2d');
+	
+		  // Parse the JSON data from the Django context
+		  var month_counts = JSON.parse('{{ month_counts_json|escapejs }}');
+	
+		  // Separate the months and counts into arrays
+		  var labels = Object.keys(month_counts);
+		  var data = Object.values(month_counts);
+	
+		  // Create the line chart
+		  var lineChart = new Chart(ctx, {
+			type: 'line',
+			data: {
+			  labels: labels,
+			  datasets: [{
+				label: 'Record Count',
+				data: data,
+				borderColor: 'blue',
+				backgroundColor: 'rgba(0, 0, 255, 0.1)',
+				fill: false,
+			  }]
+			},
+			options: {
+			  scales: {
+				xAxes: [{
+				  type: 'time',
+				  time: {
+					unit: 'month',
+					displayFormats: {
+					  month: 'YYYY-MM'
+					},
+					tooltipFormat: 'YYYY-MM',
+				  },
+				  scaleLabel: {
+					display: true,
+					labelString: 'Month',
+				  }
+				}],
+				yAxes: [{
+				  ticks: {
+					beginAtZero: true,
+				  },
+				  scaleLabel: {
+					display: true,
+					labelString: 'Record Count',
+				  }
+				}]
+			  },
+			  legend: {
+				display: true,
+				position: 'top',
+			  },
+			  title: {
+				display: true,
+				text: ' Sales Lead Record Count per Month',
+			  }
+			}
+		  });
+		});
+	  </script> -->
+
+	  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+	  <script>
+		document.addEventListener("DOMContentLoaded", function () {
+    // Parse the JSON data from the Django context
+    var month_counts = JSON.parse('{{ month_counts_json|escapejs }}');
+    
+    // Log the parsed data for debugging
+    console.log(month_counts);
+
+    // Separate the months and counts into arrays
+    var labels = Object.keys(month_counts);
+    var data = Object.values(month_counts);
+	console.log(data)
+
+    // Log the extracted data for debugging
+    console.log(labels);
+    console.log(data);
+
+    var options = {
+      series: [
+        {
+          name: 'Record Count',
+          data: data,
+        },
+      ],
+      chart: {
+        type: 'area',
+        height: 450,
+
+        toolbar: {
+          show: false,
+        },
+      },
+      colors: ['var(--primary)'], // Customize the color as needed
+      dataLabels: {
+        enabled: false,
+      },
+      legend: {
+        show: true,
+        position: 'top',
+      },
+      stroke: {
+        show: true,
+		curve:'straight',
+	    colors:['var(--primary)'],
+        width: 2,
+      },
+      grid: {
+        show: true,
+        borderColor: '#eee',
+      },
+      xaxis: {
+        type: 'month', // Assuming your data is time-based
+        categories: labels,
+        labels: {
+          show: true,
+          rotate: -45,
+        },
+      },
+      yaxis: {
+        show: true,
+        tickAmount: 4,
+        labels: {
+          offsetX: 10,
+        },
+      },
+	  fill: {
+	  opacity: 0.5,
+	  colors:'var(--primary)',
+      type: 'gradient', // Use gradient fill
+      gradient: {
+		colorStops:[ 
+			{
+			offset: 0.6,	
+			color: 'var(--primary)',
+			opacity: .2
+			}
+		],
+      shade: 'light', // Customize the gradient shade
+      type: 'horizontal', // Specify the gradient direction
+      shadeIntensity: 0.3, // Adjust the intensity of the gradient
+      opacityFrom: 0.7, // Define the start opacity
+      opacityTo: 0.9, // Define the end opacity
+    },
+  },
+      tooltip: {
+        enabled: true,
+        style: {
+          fontSize: '12px',
+        },
+        y: {
+          formatter: function (val) {
+            return val;
+          },
+        },
+      },
+    };
+
+    var chart = new ApexCharts(document.querySelector("#lineChart"), options);
+    chart.render();
+});
+
+</script>
+
+<script>
+    var ctx = document.getElementById("myChart").getContext('2d');
+    
+    var totalAmountMonth = {{ total_amount_month|default:"0" }};
+    
+    var myChart = new Chart(ctx, {
+        type: 'bar', // You can use 'bar' or any other chart type
+        data: {
+            labels: ["Current Month"],
+            datasets: [
+                {
+                    label: 'Total Amount',
+                    data: [totalAmountMonth],
+                    backgroundColor: '#BBF5F1',
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Total Amount'
+                    }
+                }
+            }
+        }
+    });
+    </script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
+
+
+
+ <!-- <script>
+// Parse the JSON data from the Django context
+var receiveddata = JSON.parse('{{month_wise_status_counts|escapejs}}');
+
+var labels = Object.keys(receiveddata);
+console.log(labels);
+var interestedData = labels.map(month => receiveddata[month].Interested || 0);
+var declineData = labels.map(month => receiveddata[month].Decline || 0);
+var convertedData = labels.map(month => receiveddata[month].Converted || 0);
+var upgradedData = labels.map(month => receiveddata[month].Upgraded || 0);
+
+var ctx = document.getElementById('mixedChart').getContext('2d');
+
+var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: labels,
+    datasets: [
+      {
+        label: 'Interested',
+        data: interestedData,
+        backgroundColor: 'DodgerBlue',
+        borderColor: 'DodgerBlue',
+        borderWidth: 1,
+      },
+      {
+        label: 'Decline',
+        data: declineData,
+        backgroundColor: 'Violet',
+        borderColor: 'Violet',
+        borderWidth: 1,
+      },
+      {
+        label: 'Converted',
+        data: convertedData,
+        backgroundColor: 'MediumSeaGreen',
+        borderColor: 'MediumSeaGreen',
+        borderWidth: 1,
+      },
+      {
+        label: 'Upgraded',
+        data: upgradedData,
+        backgroundColor: 'aqua',
+        borderColor: 'aqua',
+        borderWidth: 1,
+      },
+    ],
+  },
+  options: {
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: 'Months'
+        }
+      },
+      y: {
+        beginAtZero: true,
+        title: {
+          display: true,
+          text: 'Count'
+        }
+      }
+    }
+  }
+});
+
+</script>   -->
+
+
+<script>
+	// // Parse the JSON data from the Django context
+	// var receiveddata = JSON.parse('{{month_wise_status_counts|escapejs}}');
+	
+	// var labels = Object.keys(receiveddata);
+	// var interestedData = labels.map(month => receiveddata[month].Interested || 0);
+	// var declineData = labels.map(month => receiveddata[month].Decline || 0);
+	// var convertedData = labels.map(month => receiveddata[month].Converted || 0);
+	
+	// var options = {
+	//   series: [
+	// 	{
+	// 	  name: 'Interested Clients',
+	// 	  type: 'column',
+	// 	  data: interestedData,
+	// 	},
+	// 	{
+	// 	  name: 'Converted Clients',
+	// 	  type: 'area',
+	// 	  data: convertedData,
+	// 	},
+	// 	{
+	// 	  name: 'Declined Clients',
+	// 	  type: 'line',
+	// 	  data: declineData,
+	// 	},
+	//   ],
+	//   chart: {
+	// 	height: 350,
+	// 	type: 'line',
+	// 	stacked: false,
+	// 	toolbar: {
+	// 	  show: false,
+	// 	},
+	//   },
+	//   stroke: {
+	// 	width: [0, 3, 1],
+	// 	curve: 'smooth',
+	// 	dashArray: [0, 0, 5],
+	//   },
+	//   dataLabels: {
+    //       enabled: false
+    //     },
+	//   legend: {
+	// 	fontSize: '13px',
+	// 	fontFamily: 'poppins',
+	// 	labels: {
+	// 	  colors: '#888888',
+	// 	},
+	//   },
+	//   plotOptions: {
+	// 	bar: {
+	// 	  columnWidth: '15%',
+	// 	  borderRadius: 6,
+	// 	},
+	//   },
+	//   fill: {
+	// 	opacity: [0.85, 0.25, 1],
+	// 	type: 'gradient',
+	// 	gradient: {
+	// 	  inverseColors: false,
+	// 	  shade: 'light',
+	// 	  type: 'vertical',
+	// 	  colorStops: [
+	// 		[
+	// 		{
+	// 		  offset: 0,
+	// 		  color: 'var(--primary)',
+	// 		  opacity: 1,
+	// 		},
+	// 		{
+	// 		  offset: 100,
+	// 		  color: 'var(--primary)',
+	// 		  opacity: 1,
+	// 		},
+	// 		{
+	// 		  offset: 0,
+	// 		  color: '#3AC977',
+	// 		  opacity: 1,
+	// 		},
+	// 		{
+	// 		  offset: 0.4,
+	// 		  color: '#3AC977',
+	// 		  opacity: 0.15,
+	// 		},
+	// 		{
+	// 		  offset: 100,
+	// 		  color: '#3AC977',
+	// 		  opacity: 0,
+	// 		}
+	// 	],
+		
+	// 		{
+	// 		  offset: 0,
+	// 		  color: '#FF5E5E',
+	// 		  opacity: 1,
+	// 		},
+	// 		{
+	// 		  offset: 100,
+	// 		  color: '#FF5E5E',
+	// 		  opacity: 1,
+	// 		},
+	// 	  ],
+		  
+	// 	  stops: [0, 100, 100, 100],
+	// 	},
+	//   },
+	//   colors: ['var(--primary)', '#3AC977', '#FF5E5E'],
+	//   labels: labels,
+	//   markers: {
+	// 	size: 0,
+	//   },
+	//   xaxis: {
+	// 	type: 'category',
+	// 	labels: {
+	// 	  style: {
+	// 		fontSize: '13px',
+	// 		colors: '#888888',
+	// 	  },
+	// 	},
+	//   },
+	//   yaxis: {
+	// 	min: 0,
+	// 	tickAmount: 4,
+	// 	labels: {
+	// 	  style: {
+	// 		fontSize: '13px',
+	// 		colors: '#888888',
+	// 	  },
+	// 	},
+	//   },
+	//   tooltip: {
+	// 	shared: true,
+	// 	intersect: false,
+	// 	y: {
+	// 	  formatter: function (y) {
+	// 		if (typeof y !== 'undefined') {
+	// 		  return y.toFixed(0) + ' ';
+	// 		}
+	// 		return y;
+	// 	  },
+	// 	},
+	//   },
+	// };
+	
+	// var chart = new ApexCharts(document.querySelector('#overiewChart'), options);
+	// chart.render();
+	
+	var receiveddata = JSON.parse('{{month_wise_status_counts|escapejs}}');
+    
+    var labels = Object.keys(receiveddata);
+    var interestedData = labels.map(month => receiveddata[month].Interested || 0);
+    var declineData = labels.map(month => receiveddata[month].Decline || 0);
+    var convertedData = labels.map(month => receiveddata[month].Converted || 0);
+      
+	var options = {
+          series: [{
+          name: 'Interested Clients',
+          type: 'column',
+          data: interestedData,
+        }, {
+          name: 'Converted Clients',
+          type: 'area',
+          data: convertedData,
+        }, {
+          name: 'Declined Clients',
+          type: 'line',
+          data: declineData,
+        }],
+          chart: {
+          height: 350,
+          type: 'line',
+          stacked: false,
+        },
+        stroke: {
+          width: [0, 2, 3],
+          curve: 'smooth'
+        },
+        plotOptions: {
+          bar: {
+            columnWidth: '15%'
+          }
+        },
+        
+        fill: {
+          opacity: [0.85, 0.25, 1],
+          gradient: {
+            inverseColors: false,
+            shade: 'light',
+            type: "vertical",
+            opacityFrom: 0.85,
+            opacityTo: 0.55,
+            stops: [0, 100, 100, 100]
+          }
+        },
+        labels: labels,
+        markers: {
+          size: 0
+        },
+        xaxis: {
+          type: 'category'
+        },
+        yaxis: {
+          title: {
+            text: 'Points',
+          },
+          min: 0
+        },
+        tooltip: {
+          shared: true,
+          intersect: false,
+          y: {
+            formatter: function (y) {
+              if (typeof y !== "undefined") {
+                return y.toFixed(0) + " points";
+              }
+              return y;
+        
+            }
+          }
+        }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#overiewChart"), options);
+        chart.render();
+	
+		</script>
+
+
+</body>
+
+</html>

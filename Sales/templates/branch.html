@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+  <meta name="robots" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="W3crm:Customer Relationship Management Admin Bootstrap 5 Template">
+  <meta property="og:title" content="W3crm:Customer Relationship Management Admin Bootstrap 5 Template">
+  <meta property="og:description" content="W3crm:Customer Relationship Management Admin Bootstrap 5 Template">
+  <meta property="og:image" content="social-image.png">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- PAGE TITLE HERE -->
+  <title>Lead Management Dashboard</title>
+  <!-- FAVICONS ICON -->
+  <link rel="shortcut icon" type="image/png" href="../static/images/favicon.png">
+
+  <link href="../static/../static/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+  <link href="../static/vendor/swiper/css/swiper-bundle.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.css">
+  <link href="../static/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+  <link href="../static/vendor/jvmap/jquery-jvectormap.css" rel="stylesheet">
+  <link href="../../cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css" rel="stylesheet">
+  <link href="../static/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+
+  <!-- tagify-css -->
+  <link href="../static/vendor/tagify/dist/tagify.css" rel="stylesheet">
+
+  <!-- Style css -->
+  <link href="../static/style.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.1.1/css/dataTables.dateTime.min.css">
+
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
+  <script src="https://cdn.datatables.net/datetime/1.1.1/js/dataTables.dateTime.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.boometismenutstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+  <style>
+
+/* .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      padding:16px;
+      text-align: center;
+      background-color: #f1f1f1;
+    } */
+  </style>
+
+</head>
+
+<body data-typography="poppins" data-theme-version="light" data-layout="vertical" data-nav-headerbg="black"
+  data-headerbg="color_1">
+
+
+<div id="preloader">
+  <div class="lds-ripple">
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+
+<!--**********************************
+      Main wrapper start
+  ***********************************-->
+<div id="main-wrapper">
+  <!--**********************************
+          Nav header start
+      ***********************************-->
+  <div class="nav-header">
+    <a href="index.html" class="brand-logo">
+      <img src="../static/images/olatech_logo.png" width="190">
+    </a>
+    <div class="nav-control">
+      <div class="hamburger">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+  </div>
+  <!--**********************************
+          Nav header end
+      ***********************************-->
+
+
+
+  <!--**********************************
+          Sidebar start
+      ***********************************-->
+  <div class="deznav">
+    <div class="deznav-scroll">
+      <ul class="metismenu" id="menu">
+        <li class="menu-title">Lead Management OLATECHS</li>
+
+        <li><a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
+            <div class="menu-icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.4065 14.8714H7.78821" stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M14.4065 11.0338H7.78821" stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M10.3137 7.2051H7.78827" stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M14.5829 2.52066C14.5829 2.52066 7.54563 2.52433 7.53463 2.52433C5.00463 2.53991 3.43805 4.20458 3.43805 6.74374V15.1734C3.43805 17.7254 5.01655 19.3965 7.56855 19.3965C7.56855 19.3965 14.6049 19.3937 14.6168 19.3937C17.1468 19.3782 18.7143 17.7126 18.7143 15.1734V6.74374C18.7143 4.19174 17.1349 2.52066 14.5829 2.52066Z"
+                  stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+
+            <span class="nav-text">Forms</span>
+          </a>
+          <ul aria-expanded="false">
+            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+
+            <li><a href="{% url 'customer_list' %}">Sales Lead</a></li>
+            <li><a href="{% url 'branch_list' %}">Branch</a></li>
+            <li><a href="{% url 'manager_list' %}">Manager List</a></li>
+            <li><a href="{% url 'executive_list' %}">Executive List</a></li>
+            <li><a href="{% url 'staff'%}">Staff</a></li>
+          </ul>
+        </li>
+        <li><a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
+            <div class="menu-icon">
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.46932 12.2102H0.693665" stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M9.04547 3.32535H14.8211" stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M4.99912 3.27573C4.99912 2.08805 4.02914 1.125 2.8329 1.125C1.63667 1.125 0.666687 2.08805 0.666687 3.27573C0.666687 4.46342 1.63667 5.42647 2.8329 5.42647C4.02914 5.42647 4.99912 4.46342 4.99912 3.27573Z"
+                  stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M15.3333 12.1743C15.3333 10.9866 14.3641 10.0235 13.1679 10.0235C11.9709 10.0235 11.0009 10.9866 11.0009 12.1743C11.0009 13.3619 11.9709 14.325 13.1679 14.325C14.3641 14.325 15.3333 13.3619 15.3333 12.1743Z"
+                  stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <span class="nav-text">Table</span>
+          </a>
+          <ul aria-expanded="false">
+            <li><a href="{% url 'user_list' %}">User's</a></li>
+            <li><a href="{% url 'role_display' %}">Roles</a></li>
+          </ul>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+  <br>
+  
+  <div class="text-right">  
+    <button type="button" class="btn btn-info" data-bs-toggle="dropdown"
+        aria-expanded="false"> Hello, {{ request.session.username }}
+    </button>
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Add   
+  </button>
+    
+  <a href="{% url 'logout' %}" class="btn btn-primary" data-toggle="modal"><i class="material-icons"></i>
+    <span>Logout</span></a>
+
+  </div>
+      
+  <br><br>
+  <div class="content-body">
+
+  <div class="container-fluid">
+
+    <div class="table-responsive">
+
+  <table class="table table-striped table-hover" id="table">
+      <thead>
+        <tr style="background-color:rgb(33, 122, 237);color:rgb(18, 16, 16);">
+              
+              <th>ID</th>
+              <th>Branch Name</th>
+             
+              <th>Action</th>
+
+          </tr>
+      </thead>
+      <tbody>
+          {% for i in branches %}
+          <tr>
+              <td>{{i.id}}</td>
+
+              <td>{{i.branch_name }}</td>
+              <td>
+                   <a href="#editcl_BranchModal-{{i.id}}" class="edit" data-toggle="modal"><i
+                        class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+
+                        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo">O</button> -->
+
+              </td>             
+             
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+  </div>
+</div>
+</div>
+</div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Branch</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="{% url 'add_branch' %}" method="post">
+            {% csrf_token %}
+            <label>Branch Name</label>
+        <input name="branch_name" type="text" class="form-control" required />
+    
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      <input type="submit" class="btn btn-success" value="Add">
+    </div>
+      
+     </form>  
+      </div>
+    </div>
+  </div>
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Branch</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      <form action="{% url 'add_branch' %}" method="post">
+              {% csrf_token %}
+              <label>Branch Name</label>
+          <input name="branch_name" type="text" class="form-control" required />
+      
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-success" value="Add">
+      </div>
+  </form>
+    </div>
+  </div>
+</div>
+-->
+<!-- Edit Branch -->
+{% for i in branches %}
+
+<div id="editcl_BranchModal-{{i.id}}" class="modal fade">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <form action="/update_branch/{{i.id}}" method="post">
+              {% csrf_token %}
+              <div class="modal-header">
+                  <h4 class="modal-title">Edit Branch</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              </div>
+              <div class="modal-body">
+                  <label>ID</label>
+                  <input name="id" value="{{i.id}}" type="text" class="form-control" readonly>
+              </div>
+            <div class="modal-body">
+                <label>Branch Name</label>
+                <input name="branch_name"  value="{{i.branch_name}}" type="text" class="form-control" required />
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                <input type="submit" class="btn btn-success" value="Update">
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
+<!-- <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+  <form action="/update_branch/{{i.id}}" method="post">
+    <div class="mb-3">
+      <label>ID</label>
+      <input name="id" value="{{i.id}}" type="text" class="form-control" readonly>
+    </div>
+    <div class="mb-3">
+      <label>Branch Name</label>
+      <input name="branch_name"  value="{{i.branch_name}}" type="text" class="form-control" required />
+    </div>
+</div>
+<div class="modal-footer">
+  <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+  <input type="submit" class="btn btn-success" value="Update">
+</div>
+</form>
+
+</div>
+</div>
+</div> -->
+{% endfor  %}
+				
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+  <script src="../static/vendor/global/global.min.js"></script>
+	<script src="../static/vendor/chart.js/Chart.bundle.min.js"></script>
+	<script src="../static/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+	<script src="../static/vendor/apexchart/apexchart.js"></script>
+	
+	<!-- Dashboard 1 -->
+	<script src="../static/js/dashboard/dashboard-1.js"></script>
+	<script src="../static/vendor/draggable/draggable.js"></script>
+	
+	
+	<!-- tagify -->
+	<script src="../static/vendor/tagify/dist/tagify.js"></script>
+	 
+	<script src="../static/vendor/datatables/js/jquery.dataTables.min.js"></script>
+	<script src="../static/vendor/datatables/js/dataTables.buttons.min.js"></script>
+	<script src="../static/vendor/datatables/js/buttons.html5.min.js"></script>
+	<script src="../static/vendor/datatables/js/jszip.min.js"></script>
+	<script src="../static/js/plugins-init/datatables.init.js"></script>
+   
+	<!-- Apex Chart -->
+	
+	<script src="../static/vendor/bootstrap-datetimepicker/js/moment.js"></script>
+	<script src="../static/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+	
+
+	<!-- Vectormap -->
+    <script src="../static/vendor/jqvmap/js/jquery.vmap.min.js"></script>
+    <script src="../static/vendor/jqvmap/js/jquery.vmap.world.js"></script>
+    <script src="../static/vendor/jqvmap/js/jquery.vmap.usa.js"></script>
+    <script src="../static/js/custom.js"></script>
+    <script src="../static/js/deznav-init.js"></script>
+    <script src="../static/js/demo.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+	
+<script>
+  var minDate, maxDate;
+
+// Custom filtering function which will search data in column four between two values
+$.fn.dataTable.ext.search.push(
+   function( settings, data, dataIndex ) {
+       var min = minDate.val();
+       var max = maxDate.val();
+       var date = new Date( data[7] );
+
+       if (
+           ( min === null && max === null ) ||
+           ( min === null && date <= max ) ||
+           ( min <= date   && max === null ) ||
+           ( min <= date   && date <= max )
+       ) {
+           return true;
+       }
+       return false;
+   }
+);
+
+$(document).ready(function() {
+   // Create date inputs
+   minDate = new DateTime($('#min'), {
+       format: 'MMMM Do YYYY'
+   });
+   maxDate = new DateTime($('#max'), {
+       format: 'MMMM Do YYYY'
+   });
+
+   // DataTables initialisation
+   var table = $('#table').DataTable();
+
+   // Refilter the table
+   $('#min, #max').on('change', function () {
+       table.draw();
+   });
+});
+</script>
+
+
+
+<script>
+  $(document).ready(function () {
+    // Enable Bootstrap modal
+    $('.edit').click(function () {
+      $($(this).attr('href')).modal('show');
+    });
+  });
+</script>
+
+</body>
+
+</html>

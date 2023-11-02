@@ -1,0 +1,544 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+
+    /* Your existing CSS styles... */
+  
+    /* Media query for tablets and larger */
+    @media screen and (min-width: 768px) {
+      .modal-content {
+        width: 300px; /* Adjust the width as needed for tablets */
+        margin: 0 auto; /* Center the modal horizontally */
+      }
+  
+      .modal-body {
+        display: flex;
+        flex-wrap: wrap; /* Allow the form elements to wrap to a new line */
+        justify-content: center; /* Center the form elements within the modal */
+      }
+  
+      .modal-body .col-lg-12 {
+        width: 48%; /* Adjust the width for the form elements on tablets */
+      }
+  
+      .modal-body .col-lg-12 label {
+        margin-bottom: 5px; /* Add some spacing between labels and form inputs */
+      }
+    }
+  
+    /* Media query for mobile phones */
+    @media screen and (max-width: 767px) {
+      .modal-content {
+        width: 90%; /* Make the modal almost full width on small screens */
+        margin: 30px auto; /* Add some margin for better spacing */
+      }
+  
+      .modal-body {
+        display: flex;
+        flex-direction: column; /* Stack the form elements vertically on mobile */
+        align-items: center; /* Center the form elements within the modal */
+      }
+  
+      .modal-body .col-lg-12 {
+        width: 100%; /* Make each form section full width on mobile */
+      }
+  
+      .modal-body .col-lg-12 label {
+        margin-bottom: 10px; /* Add some spacing between labels and form inputs on mobile */
+      }
+   
+     .form-group {
+      width: 80%; /* Set the form-group width to 100% on smaller screens */
+      text-align: center; /* Center the form-group content on smaller screens */
+     }
+      /* Additional styles for mobile... */
+    }
+  </style>
+  
+</head>
+
+<body><br><br>
+  <div class="content-body">
+
+    <div class="container-fluid"> 
+   
+    <div style="width: 700px; position: relative; right: 3%; left:7%; bottom: 50%; top:10px ;padding-left: 15px;">
+      <form action="{% url 'update' customer.id %}" method="post">
+        {% csrf_token %}
+
+        <div>
+          <h3 style="color:brown; ">Edit :</h3>
+          <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+        </div>
+        <div class="row g-3" style="width: 330px; padding-left: 30px; display: inline-block;">
+          <div class="col-lg-12">
+            <label>ID</label>
+            <input name="id" value="{{customer.id}}" type="text" class="form-control">
+          </div>
+          <div class="col-lg-12">
+            <label>Company Name</label>
+            <input name="company_name" type="text" value="{{customer.company_name}}" class="form-control" required />
+          </div>
+        
+          <div class="col-lg-12">
+            <label>Type of Client</label> 
+            <select name="type_of_client"   value="{{customer.type_of_client}}" class="form-control" required>
+              <option value="New_Client">New Client</option>
+              <option value="Existing_Client">Existing Client</option>
+            </select>
+          </div>
+         
+          <div class="col-lg-12">
+           
+            <label>Status</label> 
+             <select name="category" id="category" class="form-control" required>
+              <option>{{customer.subpoints}}</option>
+
+            </select>
+            
+          </div>
+           
+          <div class="col-lg-12">
+            <label> Client Name</label>
+            <input name="name" type="text" value="{{customer.name}}" class="form-control" required>
+
+          </div>
+          <div class="col-lg-12">
+            <label>Contact Detail</label>
+            <input name="contact_detail" type="text" value="{{customer.contact_detail}}" class="form-control">
+          </div>
+          <div class="col-lg-12">
+            <label>Mail ID</label>
+            <input name="mail_id" type="text" value="{{customer.mail_id}}" class="form-control">
+          </div>
+
+          <div class="col-lg-12">
+            <label>Address</label>
+            <input name="address" type="text" value="{{customer.address}}"  class="form-control" >
+
+          </div>
+          <div class="col-lg-12">
+            <label for="bday">Meeting Date</label>
+            <input class="form-control" type="date" id="meeting_date" value="{{ customer.meeting_date|date:'Y-m-d' }}"
+              name="meeting_date" required>
+          </div>
+         
+         
+      
+         
+        </div>
+  
+  <div class="row g-3" style="width: 330px; display: inline-block; position: relative; bottom: 90px; top:0px">
+    <div class="col-lg-12">
+      <label for="bday">Next Meeting Date</label>
+      <input class="form-control" type="date" id="dt_end_date"
+          value="{{ customer.next_meeting_date|date:'Y-m-d' }}" name="next_meeting_date">
+      <span class="validity"></span>
+  </div>
+
+    <div class="col-lg-12">
+      <label>Branch Name</label>
+      <select name="branch_name"  id="branch"   class="form-control" aria-label="Default select example"
+      aria-invalid="false">
+      <option value="{{customer.branch_list}}">{{customer.branch_list}}</option>
+      
+          {% for i in branches %}
+          <option value="{{i.branch_name}}"> {{i.branch_name}}</option>
+          {% endfor %}
+      </select>
+    </div>
+    <div class="col-lg-12">
+      <label>Manager Name</label>
+
+            <select name="manager_name" id="manageri_name"   value="{{i.manager_name}}" class="form-control" aria-label="Default select example"
+            aria-invalid="false">
+            <option value="{{customer.manager_name}}">{{customer.manager_name}}</option>
+        
+                {% for i in rm1 %}
+                <option value="{{i.manager_name}}"> {{i.manager_name}}</option>
+                {% endfor %}
+            </select>
+    </div>
+         
+    <div class="col-lg-12">
+      <label>Executive  Name</label>
+            <select name="ex_name" id="ex_name"  type="text" value="{{i.ex_name}}" class="form-control" aria-label="Default select example"
+            aria-invalid="false">
+            <option value="{{customer.ex_name}}">{{customer.ex_name}}</option>
+        
+                {% for i in executives %}
+                <option value="{{i.ex_name}}"> {{i.ex_name}}</option>
+                {% endfor %}
+            </select>
+          
+    </div> 
+    <div class="col-lg-12">
+      <label>Contract Value</label>
+      <input name="amount" id="amount" type="text" value="{{customer.amount}}" class="form-control" oninput="validateAmount()">
+      <div id="amount_message" style="display: none; color: red;">Amount must be a numeric value.</div>
+
+    </div>
+
+  <div class="col-lg-12">
+    <label>Advance</label>
+    <input name="add_advance" id="add_advance" value={{customer.add_advance}}    type="text" class="form-control" oninput="validateAdvance()">
+    <div id="advance_message" class="text-danger" style="display: none; color: red;">Enter a valid numeric value for the advance.</div>
+  </div>
+  
+  <div class="col-lg-12">
+    <label>Balance Payment</label>
+    <input name="balance_payment" value={{customer.balance_payment}}    id="balance_payment" type="text" class="form-control">
+  </div>
+    <div class="col-lg-12">
+      <label for="bday">Activation Date</label>
+      <!-- <input class="form-control" type="date" name="activation_date" id="activation_date" value="{{customer.activation_date}}"> -->
+      <input class="form-control" type="date" id="activation_date" value="{{customer.activation_date|date:'Y-m-d'}}"  name="activation_date">
+
+
+    </div>
+    <div class="col-lg-12">
+      <label for="bday">Renewal Date</label>
+      <input class="form-control" type="date" id="renewal_date" value="{{customer.renewal_date|date:'Y-m-d'}}"  name="renewal_date">
+      <!-- <input class="form-control" type="date"  name="renewal_date"   id="renewal_date" value="{{ customer.renewal_date}}" > -->
+
+    </div>
+  </div>
+  <br><br>
+  <div style="margin-left: 27px;">
+    <!-- <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel"> -->
+    <a class="btn btn-secondary" style=" margin-left: 400px;" onclick="history.back()">Cancel</a>
+
+    <input style="margin-left: 40px;"     type="submit" class="btn btn-info" value="Update">
+    <!-- <button> <a href="{% url 'update' customer.id %}"> Update</a> </button> -->
+
+  </div>
+</form>
+</div>
+</div>
+<br><br><br>
+
+  <div style="position: relative; bottom:800px; left: 400px;">
+    
+    <div class="col-md-4" style="display: block; margin-left: 500px; top:120px; position: relative; ">
+    
+    
+    
+
+      <button class="btn btn-primary" style=" margin-left: 400px;" onclick="history.back()">Back to List</button>
+
+
+      <table  class="table table-striped table-hover" border="1" style="color:brown"><br>
+        <button type="button" class="btn btn-info " data-toggle="modal" data-target="#myModal">Add Remark</button>
+        <br> &nbsp; &nbsp;
+    
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Date </th>
+            <th>Remark</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for remark in remark %}
+          <tr>
+            <td>{{ remark.id }}</td>
+            <td>{{ remark.user }}</td>
+            <td>
+              {{ remark.updation_date|date:"Y-m-d" }}
+            </td>         
+            <td>{{ remark.reason }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+</div>
+  </div>
+    
+
+
+ 
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+    
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form action="{% url 'create_remark' %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="id" value="{{ customer.id }}">
+
+          
+            <div class="form-group">
+
+            <label for="reason">Remark:</label><br>
+            <textarea name="reason" id="reason" rows="4" cols="30"></textarea><br><br>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <input type="submit" class="btn-primary"   value="Submit">
+
+
+          </form>
+        </div>
+      </div>
+        
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+<!--  selected sub point for client -->
+
+<script>
+  var mealsByCategory = {
+    New_Client: ["Interested", "Decline", "Converted", "To be called" ,"Fix Meeting"],
+    Existing_Client: ["Same Package", "Upgraded","Fix Meeting"],
+  };
+
+  function updateSubpointsOptions() {
+    var typeOfClient = $("[name='type_of_client']").val();
+    var subpointsSelect = $("#category");
+
+
+    if (typeOfClient) {
+      var subpoints = mealsByCategory[typeOfClient];
+      for (const subpoint of subpoints) {
+        subpointsSelect.append("<option>" + subpoint + "</option>");
+      }
+    }
+  }
+
+  function updateNextMeetingDateVisibility() {
+    var typeOfClient = $("[name='type_of_client']").val();
+    var selectedSubpoint = $("#category").val();
+    var nextMeetingDateField = $("#dt_end_date");
+
+    if (typeOfClient === "New_Client" && selectedSubpoint === "Decline") {
+      nextMeetingDateField.attr("disabled", "disabled").hide();
+    } else {
+      nextMeetingDateField.removeAttr("disabled").show();
+    }
+  }
+
+  // Trigger the functions when the page loads and on type_of_client change
+  $(document).ready(function () {
+    updateSubpointsOptions();
+    updateNextMeetingDateVisibility();
+  });
+
+  $("[name='type_of_client']").change(function () {
+    updateSubpointsOptions();
+    updateNextMeetingDateVisibility();
+  });
+
+  $("#category").change(function () {
+    updateNextMeetingDateVisibility();
+  });
+</script>
+
+
+
+<!-- final code for get manager and executive from branch -->
+<!-- <script>
+  const branchibranch = document.getElementById('branch');
+  const branchimanager_name = document.getElementById('manageri_name');
+  const branchiex_name = document.getElementById('ex_name');
+  
+  branchibranch.addEventListener('change', () => {
+    const selectedOption = branchibranch.options[branchibranch.selectedIndex];
+    const selectedBranchName = selectedOption.text;
+  
+    console.log("Selected Branch Name:", selectedBranchName);
+  
+  
+    const branchOption = document.querySelector("select[name='branch_name'] option[value='" + selectedOption.value + "']");
+    branchOption.text = selectedBranchName;
+  
+ 
+    const selectedBranchID = selectedOption.value;
+    fetch(`/get_user_info/${selectedBranchID}`)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        branchimanager_name.value = data.manager;
+        branchiex_name.value = data.executive;
+      });
+  });
+  </script> -->
+
+
+<script>
+const executiveSelect = document.getElementById('ex_name');
+const managerInput = document.getElementById('manageri_name');
+const branchInput = document.getElementById('branch');
+
+executiveSelect.addEventListener('change', () => {
+  const selectedExecutive = executiveSelect.value;
+  fetch(`/get_user_info/${selectedExecutive}`)
+    .then(response => response.json())
+    .then(data => {
+      managerInput.value = data.manager;
+      branchInput.value = data.branch;
+    });
+});
+
+</script>
+  
+  <!-- To get the manager and executive name -->
+
+<!--  
+<script>
+
+const branchibranch = document.getElementById('branch');
+const branchimanager_name = document.getElementById('manageri_name');
+const branchiex_name = document.getElementById('ex_name');
+
+branchibranch.addEventListener('change', () => {
+  const selectedUser = branchibranch.value;
+  console.log("hello", selectedUser);
+  fetch(`/get_user_info/${selectedUser}`)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      branchimanager_name.value = data.manager;
+      branchiex_name.value = data.executive;
+    });
+});
+
+</script>  -->
+
+  
+
+
+<script>
+  $(function(){
+    var dtToday = new Date();
+
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+    if(month < 10)
+        month = '0' + month.toString();
+    if(day < 10)
+        day = '0' + day.toString();
+
+    var minDate= year + '-' + month + '-' + day;
+
+    $('#dt_end_date').attr('min', minDate);
+});
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+<script>
+  function validateAmount() {
+  const amountInput = document.getElementById('amount');
+  const amount = amountInput.value.trim();
+
+  if (/^\d+$/.test(amount)) {
+    document.getElementById('amount_message').style.display = 'none';
+  } else {
+    document.getElementById('amount_message').style.display = 'block';
+  }
+}
+
+</script>
+
+
+<script>
+  function validateAdvance() {
+    const advanceInput = document.getElementById('add_advance');
+    const advance = advanceInput.value.trim();
+  
+    if (/^\d+$/.test(advance)) {
+      document.getElementById('advance_message').style.display = 'none';
+    } else {
+      document.getElementById('advance_message').style.display = 'block';
+    }
+  }
+  
+  </script>
+
+<!-- select option -->
+<script>
+  // Function to update form elements based on user role
+  function updateFormForUserRole(userRole) {
+    const branchSelect = document.getElementById('branch');
+    const managerSelect = document.getElementById('manageri_name');
+    const executiveSelect = document.getElementById('ex_name');
+
+    // Enable all options by default
+    for (let option of branchSelect.options) {
+      option.style.display = 'block';
+      option.disabled = false;
+    }
+    for (let option of managerSelect.options) {
+      option.style.display = 'block';
+      option.disabled = false;
+    }
+    for (let option of executiveSelect.options) {
+      option.style.display = 'block';
+      option.disabled = false;
+    }
+
+    // Update options based on user role
+    if (userRole === 'Manager') {
+      // Show only the executive's name and hide the branch and manager options
+      for (let option of branchSelect.options) {
+        option.style.display = 'none';
+      }
+      for (let option of managerSelect.options) {
+        option.style.display = 'none';
+      }
+      for (let option of executiveSelect.options) {
+        option.style.display = 'block';
+      }
+    } else if (userRole === 'Admin') {
+      // Keep all options and fields enabled
+    } else if (userRole === 'Executive') {
+      for (let option of branchSelect.options) {
+      option.style.display = 'none';
+    }
+    for (let option of managerSelect.options) {
+      option.style.display = 'none';
+    }
+    for (let option of executiveSelect.options) {
+      option.style.display = 'none';
+    }
+    }
+  }
+
+  // Retrieve the user's role from the session
+  const userRole = '{{ request.session.roles }}'; // Assuming your session variable for role is 'roles'
+  updateFormForUserRole(userRole);
+</script>
+
+
+</body>
+
+</html>

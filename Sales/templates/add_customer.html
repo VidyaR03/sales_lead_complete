@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Customer</title>
+</head>
+<body>
+    <h1>Add Customer</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="company_name">Company Name:</label>
+        <input type="text" name="company_name" required><br>
+
+        <label for="type_of_client">Type of Client:</label>
+        <select name="type_of_client" required>
+            <option value="new">New Client</option>
+            <option value="existing">Existing Client</option>
+            <option value="decline">Decline Client</option>
+        </select><br>
+
+        <label for="name">Name:</label>
+        <input type="text" name="name" required><br>
+
+        <label for="contact_detail">Contact Detail:</label>
+        <input type="text" name="contact_detail" required><br>
+
+        <label for="mail_id">Mail ID:</label>
+        <input type="email" name="mail_id" required><br>
+
+        <label for="nature_of_business">Nature of Business:</label>
+        <select name="nature_of_business" required>
+            <option value="manufacturer">Manufacturer</option>
+            <option value="supplier">Supplier</option>
+            <option value="trader">Trader</option>
+            <option value="retail">Retail</option>
+        </select><br>
+
+        <label for="meeting_date">Meeting Date:</label>
+        <input type="date" name="meeting_date" required><br>
+
+        <label for="status_of_client">Status of Client:</label>
+        <select name="status_of_client" required>
+            <option value="prospect">Prospect</option>
+            <option value="hot_prospect">Hot Prospect</option>
+            <option value="not_interested">Not Interested</option>
+        </select><br>
+
+        <label for="next_meeting_date">Next Meeting Date:</label>
+        <input type="date" name="next_meeting_date"><br>
+
+        <label for="package_sold">Package Sold:</label>
+        <input type="text" name="package_sold"><br>
+
+        <label for="amount">Amount:</label>
+        <input type="number" name="amount"><br>
+
+        <label for="activation_date">Activation Date:</label>
+        <input type="date" name="activation_date"><br>
+
+        <label for="renewal_date">Renewal Date:</label>
+        <input type="date" name="renewal_date"><br>
+
+        <input type="submit" value="Add Customer">
+    </form>
+</body>
+</html>
+

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Customer Data</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto%7CVarela+Round">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+  <script src="../../../static/js/demo.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+  <!-- pagination -->
+  <link rel="stylesheet" type="text/css" href="{% static 'customer.css' %}">
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+
+  
+
+
+
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
+  <!-- custom css -->
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
+    
+    
+
+
+
+  <style>
+    a {
+      color: black;
+    }
+
+   
+ </style>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background-color: #fff;
+    }
+
+    .side-navbar {
+      width: 180px;
+      height: 100%;
+      position: fixed;
+      margin-left: -300px;
+      background-color: #021c3c;
+      transition: 0.5s;
+      color: #fff;
+      font-size: 10px;
+    }
+
+    .nav-link:active,
+    .nav-link:focus,
+    .nav-link:hover {
+      background-color: #10def024;
+      color: #fff;
+    }
+
+    .my-container {
+      transition: 0.4s;
+    }
+
+    .active-nav {
+      margin-left: 0;
+    }
+
+    /* For main section */
+    .active-cont {
+      margin-left: 180px;
+    }
+
+    #menu-btn {
+      background-color: #021c3c;
+      color: white;
+    }
+
+    .my-container input {
+      border-radius: 2rem;
+      padding: 2px 20px;
+    }
+
+    /* Media Queries for different views */
+
+    /* For mobile phones (portrait and landscape) */
+    @media only screen and (max-width: 767px) {
+
+      /* Add your CSS styles specific to mobile phones here */
+      /* For example, you can change font sizes or padding */
+      body {
+        font-size: 14px;
+        /* Adjust the font size for better readability on mobile */
+      }
+
+      .side-navbar {
+        font-size: 8px;
+        /* Adjust the font size of the side navbar for mobile */
+      }
+
+      /* You can add more styles specific to mobile view here */
+    }
+
+    /* For tablets (portrait and landscape) */
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      /* Add your CSS styles specific to tablets here */
+      /* For example, you can adjust the size or position of elements */
+    }
+
+    /* For laptops and larger screens */
+    @media only screen and (min-width: 992px) {
+      /* Add your CSS styles specific to laptops and larger screens here */
+      /* For example, you can modify the layout or margins */
+    }
+
+
+
+    /* Your other styles for the popup container and content */
+
+    /* Media query for tablets and larger */
+    @media screen and (min-width: 768px) {
+      .modal-content {
+        width: 600px;
+        /* Adjust the width as needed for tablets */
+        margin: 0 auto;
+        /* Center the modal horizontally */
+      }
+    }
+
+    /* Media query for mobile phones */
+    @media screen and (max-width: 767px) {
+      .modal-content {
+        width: 90%;
+        /* Make the modal almost full width on small screens */
+        margin: 30px auto;
+        /* Add some margin for better spacing */
+      }
+
+      .modal-body {
+        display: flex;
+        flex-wrap: wrap;
+        /* Allow the form elements to wrap to a new line */
+        justify-content: center;
+        /* Center the form elements within the modal */
+      }
+
+      .modal-body>div {
+        width: 100%;
+        /* Make each form section full width on mobile */
+      }
+
+      /* Adjust individual form elements as needed for mobile view */
+      .form-group {
+        width: 100%;
+      }
+
+      /* Add any other mobile-specific styling here */
+    }
+
+    .container {
+            max-width: 220px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;      display: flex;
+
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Default styles for larger screens */
+    .form-group {
+      width: 100%;
+    
+        }
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .form-group {
+      width: 100%;
+
+    }
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 20px;
+  text-align: justify;
+  background-color: #f1f1f1;
+}
+
+  </style>
+
+
+</head>
+
+<body>
+
+  <!-- Side-Nav -->
+  <div class="side-navbar active-nav d-flex justify-content-between flex-wrap flex-column" id="sidebar">
+    <img src="{% static 'Images/olatech_logo.jpg' %}" style="height: 40px; max-width:175px; margin-top: 20px;">
+    <ul class="nav flex-column text-white w-100"><br><br><br><br>
+
+      <a href="{% url 'customer_list' %}" class="nav-link h3 text-white my-2" style="font-size: 21px;">
+
+
+        <li class="nav-link">
+          <i class="bx bx-home-circle"></i>
+          <span class="mx-2">Sales Lead</span>
+        </li>
+      </a><br>
+      <a href="{% url 'branch_list' %}" class="nav-link h3 text-white my-2" style="font-size: 21px;">
+
+
+        <li class="nav-link">
+          <i class="bx bxs-dashboard"></i>
+          <span class="mx-2">Branch</span>
+        </li>
+      </a><br>
+      <a href="{% url 'manager_list' %}" class="nav-link h3 text-white my-2" style="font-size: 21px;">
+
+
+        <li class="nav-link">
+          <i class="bx bx-user-check"></i>
+          <span class="mx-2">Manager</span>
+        </li>
+      </a><br>
+     
+      <a href="{% url 'executive_list' %}" class="nav-link h3 text-white my-2" style="font-size: 21px;">
+
+
+        <li class="nav-link">
+          <i class="bx bx-conversation"></i>
+          <span class="mx-2">Executive</span>
+        </li>
+      </a><br>
+      <a href="{% url 'staff'%}" class="nav-link h3 text-white my-2" style="font-size: 21px;">
+
+
+        <li class="nav-link">
+          <i class="bx bx-user-check"></i>
+          <span class="mx-2">Staff</span>
+        </li>
+      </a><br>
+      <!-- <a href="{% url 'map_executives'%}" class="nav-link h3 text-white my-2">
+
+
+        <li class="nav-link">
+          <i class="bx bx-user-check"></i>
+          <span class="mx-2">Map Executive</span>
+        </li>
+      </a><br> -->
+      <a href="{% url 'user_list' %}" class="nav-link h3 text-white my-2" style="font-size: 21px;">
+
+
+        <li class="nav-link">
+          <i class="bx bxs-user"></i>
+          <span class="mx-2">Users</span>
+        </li>
+      </a><br>
+      <a href="{% url 'role_display' %}" class="nav-link h3 text-white my-2" style="font-size: 21px;">
+
+
+        <li class="nav-link">
+          <i class="bx bx-notepad"></i>
+          <span class="mx-2">Role</span>
+        </li>
+      </a>
+      <br>
+
+  </div>
+
+
+  <!-- Main Wrapper -->
+  <div class="my-container active-cont">
+    <!-- Top Nav -->
+    <nav class="navbar top-navbar navbar-light bg-light px-5">
+
+      <a class="btn border-0" id="menu-btn"><i class="bx bx-menu"></i></a>
+    </nav>
+
+    <!-- Table Content Start -->
+    <div class="text-right"> <button type="button" class="btn btn-secondary" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Hello, {{ request.session.username }}
+      </button>
+    
+      <a href="{% url 'logout' %}" class="btn btn-primary" data-toggle="modal"><i class="material-icons"></i>
+        <span>Logout</span></a><br><br>
+        
+    
+
+    </div>
+<br>
+<div class="card">
+
+<button class="btn btn-primary" style=" margin-left: 1100px;" onclick="history.back()">Back to List</button>
+<div class="table-responsive">
+   <div style="position: relative; bottom:10px; left: 100px;">
+      <h4 style="font-size: large;"><b>Promote Executive to Manager</b></h4><br><br>
+      <form method="post" >
+          {% csrf_token %}
+          <div class="form-group" action="{% url 'promote_executive_to_manager' %}">
+              <label for="executive_name">Executive Name:</label>
+              <select id="executive_name" name="executive_name">
+                  {% for executive in executives %}
+                      <option value="{{ executive.ex_name }}">{{ executive.ex_name }}</option>
+                  {% endfor %}
+              </select>
+          </div>
+          <br>
+          <div class="form-group">
+              <label for="branch_name">Branch:</label>
+              <select id="branch_name" name="branch_name">
+                  {% for branch in branches %}
+                      <option value="{{ branch.branch_name }}">{{ branch.branch_name }}</option>
+                  {% endfor %}
+              </select>
+          </div>
+          <br>
+          <input type="submit" value="Promote to Manager">
+          {% if message %}
+              <p>{{ message }}</p>
+          {% endif %}
+      </form> 
+ 
+      <div class="container" style="position: relative; bottom:200px; left: 50px;">
+        <form method="post" action="{% url 'map_executives' %}">
+          {% csrf_token %}
+              <div class="form-group" >
+                  <label for="manager">Select Manager:</label>
+                  <select id="manager" name="manager">
+                      {% for manager in managers %}
+                          <option value="{{ manager.id }}">{{ manager.manager_name }}</option>
+                      {% endfor %}
+                  </select>
+              </div>
+              <div class="form-group">
+                  <label>Select Executives:</label><br>
+                  {% for executive in executives %}
+                      <label>
+                          <input type="checkbox" name="executives" value="{{ executive.id }}"> {{ executive.ex_name }}
+                      </label><br>
+                  {% endfor %}
+              </div>
+              <br>
+              <input type="submit" value="Map Executives">
+ 
+          </form>
+          {% if message %}
+          <div class="alert alert-success" role="alert">
+              {{ message }}
+          </div>
+          {% endif %}
+      </div>
+  </div>
+</div>
+</div>
+<!-- 
+
+ <div class="table-responsive">
+
+
+    <div  style="position: relative; bottom:10px; left: 100px;">
+    <h4 style="font-size: large;"><b>Promote Executive to Manager</b></h4><br><br>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group" action="{% url 'promote_executive_to_manager' %}">
+          <label for="executive_name">Executive Name:</label>
+          <select id="executive_name" name="executive_name" >
+              {% for executive in executives %}
+                  <option value="{{ executive.ex_name }}">{{ executive.ex_name }}</option>
+              {% endfor %}
+          </select>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="branch_name">Branch:</label>
+          <select id="branch_name" name="branch_name">
+              {% for branch in branches %}
+                  <option value="{{ branch.branch_name }}">{{ branch.branch_name }}</option>
+              {% endfor %}
+          </select>
+
+        </div>
+      <br>
+        
+        <input type="submit" value="Promote to Manager">
+    
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+
+   </form>
+ 
+   <div class="container" style="position: relative; bottom:200px; left: 50px;">
+      
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+
+        <label for="manager">Select Manager:</label>
+        <select id="manager" name="manager">
+            {% for manager in managers %}
+                <option value="{{ manager.id }}">{{ manager.manager_name }}</option>
+            {% endfor %}
+        </select>
+        </div>
+        <div class="form-group">
+          <label>Select Executives:</label><br>
+          {% for executive in executives %}
+              <label>
+                  <input type="checkbox" name="executives" value="{{ executive.id }}"> {{ executive.ex_name }}
+              </label><br>
+          {% endfor %}
+      </div>
+       
+
+<br>
+        <input type="submit" value="Map Executives ">
+    </form>
+   </div>
+  
+</div>   -->
+</body>
+  
+</html>

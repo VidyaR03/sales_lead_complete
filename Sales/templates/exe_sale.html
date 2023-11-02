@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+  <meta name="robots" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="W3crm:Customer Relationship Management Admin Bootstrap 5 Template">
+  <meta property="og:title" content="W3crm:Customer Relationship Management Admin Bootstrap 5 Template">
+  <meta property="og:description" content="W3crm:Customer Relationship Management Admin Bootstrap 5 Template">
+  <meta property="og:image" content="social-image.png">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- PAGE TITLE HERE -->
+  <title>Executives list</title>
+  <!-- FAVICONS ICON -->
+  <link rel="shortcut icon" type="image/png" href="../static/images/favicon.png">
+
+  <link href="../static/../static/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+  <link href="../static/vendor/swiper/css/swiper-bundle.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.css">
+  <link href="../static/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+  <link href="../static/vendor/jvmap/jquery-jvectormap.css" rel="stylesheet">
+  <link href="../../cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css" rel="stylesheet">
+  <link href="../static/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+
+  <!-- tagify-css -->
+  <link href="../static/vendor/tagify/dist/tagify.css" rel="stylesheet">
+
+  <!-- Style css -->
+  <link href="../static/style.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.5.1/css/dataTables.dateTime.min.css">
+
+
+
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+  <script src="https://cdn.datatables.net/datetime/1.5.1/js/dataTables.dateTime.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+
+
+
+</head>
+
+<body data-typography="poppins" data-theme-version="light" data-layout="vertical" data-nav-headerbg="black"
+  data-headerbg="color_1">
+
+  <!--*******************
+        Preloader start
+    ********************-->
+  <div id="preloader">
+    <div class="lds-ripple">
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+
+  <!--**********************************
+        Main wrapper start
+    ***********************************-->
+  <div id="main-wrapper">
+    <!--**********************************
+            Nav header start
+        ***********************************-->
+    <div class="nav-header">
+      <a href="index.html" class="brand-logo">
+        <img src="../static/images/olatech_logo.png" width="190">
+      </a>
+      <div class="nav-control">
+        <div class="hamburger">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </div>
+      </div>
+    </div>
+    <!--**********************************
+            Nav header end
+        ***********************************-->
+
+
+
+    <!--**********************************
+            Sidebar start
+        ***********************************-->
+    <div class="deznav">
+      <div class="deznav-scroll">
+        <ul class="metismenu" id="menu">
+          <li class="menu-title">Lead Management OLATECHS</li>
+
+          <li><a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
+              <div class="menu-icon">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14.4065 14.8714H7.78821" stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M14.4065 11.0338H7.78821" stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M10.3137 7.2051H7.78827" stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M14.5829 2.52066C14.5829 2.52066 7.54563 2.52433 7.53463 2.52433C5.00463 2.53991 3.43805 4.20458 3.43805 6.74374V15.1734C3.43805 17.7254 5.01655 19.3965 7.56855 19.3965C7.56855 19.3965 14.6049 19.3937 14.6168 19.3937C17.1468 19.3782 18.7143 17.7126 18.7143 15.1734V6.74374C18.7143 4.19174 17.1349 2.52066 14.5829 2.52066Z"
+                    stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+
+              <span class="nav-text">Forms</span>
+            </a>
+            <ul aria-expanded="false">
+
+              <li><a href="{% url 'exedash' %}">Dashboard</a></li>	
+              <li><a href="{% url 'executive_dash' %}">Executives Leads</a></li>							
+						
+
+
+              
+            </ul>
+          </li>
+       
+
+        </ul>
+
+      </div>
+    </div>
+ 
+
+<!-- Main Wrapper -->
+  <!-- Top Nav -->
+  <div class="content-body">
+
+  <h3 style="text-align: center; color: brown;">Executive leads List</h3>
+
+  <div class="text-right">  
+    <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Hello, {{ request.session.username }}
+    </button>
+    <a href="#addCustomerModal" class="btn btn-success" data-toggle="modal"><i class="material-icons"></i>
+     <span>Add </span></a>
+     <!-- <a href="{% url 'logout' %}" class="btn btn-primary" data-toggle="modal"><i class="material-icons"></i>
+    <span>Logout</span></a> -->
+    <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+
+  
+  </div>
+
+
+
+
+
+<div class="container-fluid">
+  <div class="col-md-12" >
+    <div class="row">
+  <div class="col-md-2 p-2"><label for="min"><b>Start Date:</b></label>
+    <input type="text" id="min" class="form-control"></div>
+
+  <div class="col-md-2 p-2"><label for="max"><b>End Date:</b></label>
+    <input type="text" id="max" class="form-control"></div>          
+  
+   
+  </div>
+  </div>
+</div>
+
+
+  <div class="container-fluid">   
+     <div class="table-responsive">
+
+    <table class="table table-striped" id="table">
+        <thead>
+          <tr style="background-color:rgb(170, 203, 245);color:rgb(249, 244, 244);">
+               <th>Manager Name</th>
+                <th>Branch Name</th>
+                <th>Executive Name</th>
+                <th>Company Name</th>
+                <th>Type of Client</th>
+                <th>Client Status</th>
+
+                <th>Client Name</th>
+                <th>Contact Detail</th>
+                <th>Address</th>
+                <th>Updation Date</th>
+                <!-- <th>Mail ID</th> -->
+                <th>Meeting Date</th>
+                <!-- <th>Status of Client</th> -->
+                <th>Next Meeting Date</th>
+                <!-- <th>Package Sold</th> -->
+                <th>Contract value</th>
+                <th>Advance</th>
+                <th>Balance Payment</th>
+                <th>Activation Date</th>
+                <th>Renewal Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer in exe_list %}
+              <tr id="{{customer.id}}">
+           
+                <!-- <td>
+                    <input name="change_id[]" value="{{customer.id}}">
+            
+                </td>  -->
+                <td><a style="color: black;"  href="{% url 'customer_detail' customer.id %}">{{ customer.manager_name }}</a></td>  
+                <td><a style="color: black;"  href="{% url 'customer_detail' customer.id %}">{{customer.branch_list}}</a></td>            
+                <td><a style="color: black;"  href="{% url 'customer_detail' customer.id %}">{{ customer.ex_name }}</a></td>
+                <td><a style="color: black;"  href="{% url 'customer_detail' customer.id %}">{{ customer.company_name }}</a></td>
+                <td><a style="color: black;" href="{% url 'customer_detail' customer.id %}">{{ customer.type_of_client }}</a></td>
+                <td><a style="color: black;" href="{% url 'customer_detail' customer.id %}">{{ customer.subpoints }}</a></td>                
+                <td><a style="color: black;"  href="{% url 'customer_detail' customer.id %}">{{ customer.name }}</a></td>
+                <td><a style="color: black;"  href="{% url 'customer_detail' customer.id %}">{{ customer.contact_detail }}</a></td>
+                <td><a style="color: black;" href="{% url 'customer_detail' customer.id %}">{{ customer.address }}</a>
+                </td>
+                <td><a style="color: black;" href="{% url 'customer_detail' customer.id %}">{{ customer.updation_date|date:"Y-m-d" }}</a></td>
+                <!-- <td><a style="color: black;"  href="{% url 'customer_detail' customer.id %}">{{ customer.mail_id }}</a></td> -->
+                <!-- <td>{{ customer.get_nature_of_business_display }}</td> -->
+                <td><a style="color: black;"  href="{% url 'customer_detail' customer.id %}">{{ customer.meeting_date }}</a></td>
+                <!-- <td>{{ customer.get_status_of_client_display }}</td> -->
+                <td><a style="color: black;"  href="{% url 'customer_detail' customer.id %}">{{ customer.next_meeting_date }}</a></td>
+                <!-- <td>{{ customer.package_sold }}</td> -->
+                <td><a style="color: black;"  href="{% url 'customer_detail' customer.id %}">{{ customer.amount }}</a></td>
+                <td><a style="color: black;" href="{% url 'customer_detail' customer.id %}">{{ customer.add_advance }}</a></td>
+                <td><a style="color: black;" href="{% url 'customer_detail' customer.id %}">{{ customer.balance_payment }}</a></td>
+                <td><a style="color: black;"  href="{% url 'customer_detail' customer.id %}">{{ customer.activation_date }}</a></td>
+                <td><a style="color: black;"  href="{% url 'customer_detail' customer.id %}">{{ customer.renewal_date }}</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+</div>
+</div>
+
+<div id="addCustomerModal" class="modal fade">
+    <div class="modal-dialog">
+    <div class="modal-content" >
+    <form action="{% url 'add' %}" method="post">
+    {% csrf_token %}
+    <div class="modal-header">
+      <!-- <input type="text" value="{{name}}" name="e_name" hidden> -->
+    <h4 class="modal-title">Add Executive</h4>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    </div>
+    <div class="modal-body" >
+    
+      <div class="form-group">
+        <span class="required-field"></span><label>Branch:<a href="{% url 'branch_list' %}">
+          <span style="display: inline;"></span>
+        </a></label>
+        <input type="text" class="form-control" id="branch"  value="{{cl_ex.0.branch_list.branch_name}}"  name="branch_name">
+        </div>
+
+        <div class="form-group">
+          <label class="control-label"><b> Manager : {{cl_ex.manager_name}}</b><span
+                  class="text-danger"></span></label>
+              <input type="text" class="form-control"  id="manageri_name"    value="{{cl_ex.0.manager_name}}"  name="manager_name">
+        </div>
+      <div class="form-group">
+        <label>Executive  Name</label>
+          <input  type="text" class="form-control" id="ex_name" name="ex_name" value="{{e_name}}">
+    
+      </div>
+    <div class="form-group">
+        <label>Company Name</label>
+        <input name="company_name" type="text" class="form-control" required />
+    
+      </div>
+       
+      <div class="form-group">
+        <label>Type of Client</label>
+        <select name="type_of_client" onChange="changecat(this.value);" class="form-control">
+          <option value="" disabled selected>Select Type of Client</option>
+          <option value="New_Client">New Client</option>
+          <option value="Existing_Client">Existing Client</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Status</label>
+        <select name="category" id="category" class="form-control">
+          <option value="" disabled selected>Select</option>
+        </select>
+      </div> 
+
+    
+     
+      <div class="form-group">
+        <label> Client Name</label>
+        <input name="name" type="text" class="form-control" required>
+    
+      
+      </div>
+      <div class="form-group">
+        <label>Contact Detail</label>
+        <input name="contact_detail" type="text" id="contact_detail" class="form-control" oninput="validateContactNumber()">
+        <div id="contact_detail_message" style="display: none; color: red;">Contact number must be either 10 or 12 digits long.</div>
+      </div>
+    
+    
+    
+    
+   
+      <div class="form-group">
+        <label>Mail ID</label>
+        <input name="mail_id" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Address</label>
+        <input name="address" type="text" class="form-control" required />
+
+      </div>
+      <div class="form-group">
+        <label for="bday">Meeting Date</label>
+        <input class="form-control" type="date" id="dt_start_date" name="meeting_date" 
+          pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}" required>
+        <span class="validity"></span>
+      </div>
+      <div class="form-group">
+        <label for="bday">Next Meeting Date</label>
+        <input class="form-control" type="date" id="dt_end_date" name="next_meeting_date" 
+          pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}" required>
+        <span class="validity"></span>
+      </div>
+   
+      <div class="form-group">
+        <label>contract Value</label>
+        <input name="amount" type="text" id="amount" class="form-control" oninput="validateAmount()">
+        <div id="amount_message" style="display: none; color: red;">Amount must be a numeric value.</div>
+      </div>
+      <div class="form-group">
+        <label>Advance</label>
+        <input name="add_advance" id="add_advance" type="text" class="form-control" oninput="validateAdvance()">
+        <div id="advance_message" class="text-danger" style="display: none; color: red;">Enter a valid numeric value for the advance.</div>
+      </div>
+      
+      <div class="form-group">
+        <label>Balance Payment</label>
+        <input name="balance_payment" id="balance_payment" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="activation_date">Activation Date</label>
+        <input class="form-control" type="date" id="activation_date" name="activation_date" placeholder="YYYY-MM-DD">
+    </div>
+    <div class="form-group">
+        <label for="renewal_date">Renewal Date</label>
+        <input class="form-control" type="date" id="renewal_date" name="renewal_date" placeholder="YYYY-MM-DD">
+    </div>
+     
+    </div>
+    <div class="modal-footer">
+    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+    <input type="submit" class="btn btn-success" value="Add">
+    </div>
+    </form>
+    </div>
+    </div>
+    </div>
+  </div>
+
+
+
+
+
+
+<script src="../static/vendor/global/global.min.js"></script>
+<script src="../static/vendor/chart.js/Chart.bundle.min.js"></script>
+<script src="../static/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+
+<!-- Dashboard 1 -->
+<script src="../static/js/dashboard/dashboard-1.js"></script>
+<script src="../static/vendor/draggable/draggable.js"></script>
+
+
+<!-- tagify -->
+<script src="../static/vendor/tagify/dist/tagify.js"></script>
+
+<script src="../static/vendor/datatables/js/jquery.dataTables.min.js"></script>
+<script src="../static/vendor/datatables/js/dataTables.buttons.min.js"></script>
+<script src="../static/vendor/datatables/js/buttons.html5.min.js"></script>
+<script src="../static/vendor/datatables/js/jszip.min.js"></script>
+<script src="../static/js/plugins-init/datatables.init.js"></script>
+
+<!-- Apex Chart -->
+
+<script src="../static/vendor/bootstrap-datetimepicker/js/moment.js"></script>
+<script src="../static/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+
+
+<!-- Vectormap -->
+<script src="../static/vendor/jqvmap/js/jquery.vmap.min.js"></script>
+<script src="../static/vendor/jqvmap/js/jquery.vmap.world.js"></script>
+<script src="../static/vendor/jqvmap/js/jquery.vmap.usa.js"></script>
+<script src="../static/js/custom.js"></script>
+<script src="../static/js/deznav-init.js"></script>
+<script src="../static/js/demo.js"></script>
+
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    <script>
+      const branchibranch = document.getElementById('branch');
+      const branchimanager_name = document.getElementById('manageri_name');
+      const branchiex_name = document.getElementById('ex_name');
+      
+      branchibranch.addEventListener('change', () => {
+        const selectedOption = branchibranch.options[branchibranch.selectedIndex];
+        const selectedBranchName = selectedOption.text;
+      
+        console.log("Selected Branch Name:", selectedBranchName);
+      
+        // Update the branch name field
+        const branchOption = document.querySelector("select[name='branch_name'] option[value='" + selectedOption.value + "']");
+        branchOption.text = selectedBranchName;
+      
+        // The code below remains unchanged
+        const selectedBranchID = selectedOption.value;
+        fetch(`/get_user_info/${selectedBranchID}`)
+          .then(response => response.json())
+          .then(data => {
+            console.log(data);
+            branchimanager_name.value = data.manager;
+            branchiex_name.value = data.executive;
+          });
+      });
+      </script>
+   
+
+  <!-- Searching data -->
+
+  <script>
+    let minDate, maxDate;
+ 
+ // Custom filtering function which will search data in column four between two values
+ DataTable.ext.search.push(function (settings, data, dataIndex) {
+     let min = minDate.val();
+     let max = maxDate.val();
+     let date = new Date(data[9]);
+  
+     if (
+         (min === null && max === null) ||
+         (min === null && date <= max) ||
+         (min <= date && max === null) ||
+         (min <= date && date <= max)
+     ) {
+         return true;
+     }
+     return false;
+ });
+  
+ // Create date inputs
+ minDate = new DateTime('#min', {
+     format: 'MMMM Do YYYY'
+ });
+ maxDate = new DateTime('#max', {
+     format: 'MMMM Do YYYY'
+ });
+  
+ // DataTables initialisation
+ let table = new DataTable('#table');
+  
+ // Refilter the table
+ document.querySelectorAll('#min, #max').forEach((el) => {
+     el.addEventListener('change', () => table.draw());
+ });
+  </script>
+<!-- select  the subpoint -->
+
+
+<script>
+  function validateAmount() {
+  const amountInput = document.getElementById('amount');
+  const amount = amountInput.value.trim();
+
+  if (/^\d+$/.test(amount)) {
+    document.getElementById('amount_message').style.display = 'none';
+  } else {
+    document.getElementById('amount_message').style.display = 'block';
+  }
+}
+
+</script>
+
+
+<script>
+  function validateContactNumber() {
+    const contactNumberInput = document.getElementById('contact_detail');
+    const contactNumber = contactNumberInput.value;
+  
+    if (contactNumber.length === 10 || contactNumber.length === 12) {
+      document.getElementById('contact_detail_message').style.display = 'none';
+    } else {
+      document.getElementById('contact_detail_message').style.display = 'block';
+    }
+  }
+  
+  
+  
+  </script>
+
+  
+<!-- next meeting date  -->
+
+<script>
+  $(function() {
+    var dtToday = new Date();
+
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+    if (month < 10)
+      month = '0' + month.toString();
+    if (day < 10)
+      day = '0' + day.toString();
+
+    var minDate = year + '-' + month + '-' + day;
+
+    $('#dt_end_date').attr('min', minDate);
+
+    // Function to update the minimum date of the Next Meeting Date field
+    function updateNextMeetingDateMinDate() {
+      var meetingDateValue = $('[name="meeting_date"]').val();
+      if (meetingDateValue) {
+        $('[name="next_meeting_date"]').attr('min', meetingDateValue);
+      } else {
+        $('[name="next_meeting_date"]').attr('min', minDate);
+      }
+    }
+
+    // Trigger the function when the page loads and when the Meeting Date field changes
+    $('[name="meeting_date"]').on('change', function() {
+      updateNextMeetingDateMinDate();
+    });
+
+    // Trigger the function on page load
+    updateNextMeetingDateMinDate();
+  });
+</script>
+
+
+
+<script>
+  function validateAdvance() {
+    const advanceInput = document.getElementById('add_advance');
+    const advance = advanceInput.value.trim();
+  
+    if (/^\d+$/.test(advance)) {
+      document.getElementById('advance_message').style.display = 'none';
+    } else {
+      document.getElementById('advance_message').style.display = 'block';
+    }
+  }
+  
+  </script>
+    
+<script>
+    var mealsByCategory = {
+        New_Client: ["Interested", "Decline", "Converted", "To be called", "Fix Meeting"],
+        Existing_Client: ["Same Package", "Upgraded", "Fix Meeting"],
+    };
+
+    function updateSubpointsOptions() {
+        var typeOfClient = $("[name='type_of_client']").val();
+        var subpointsSelect = $("#category");
+
+        subpointsSelect.empty().append("<option value='' disabled selected>Select</option>");
+
+        if (typeOfClient) {
+            var subpoints = mealsByCategory[typeOfClient];
+            for (const subpoint of subpoints) {
+                subpointsSelect.append("<option>" + subpoint + "</option>");
+            }
+        }
+    }
+
+    function updateNextMeetingDateVisibility() {
+        var typeOfClient = $("[name='type_of_client']").val();
+        var selectedSubpoint = $("#category").val();
+        var nextMeetingDateField = $("#dt_end_date");
+
+        if (typeOfClient === "New_Client" && selectedSubpoint === "Decline") {
+            nextMeetingDateField.attr("disabled", "disabled").hide();
+        } else {
+            nextMeetingDateField.removeAttr("disabled").show();
+        }
+    }
+
+    // Trigger the functions when the page loads and on type_of_client change
+    $(document).ready(function() {
+        updateSubpointsOptions();
+        updateNextMeetingDateVisibility();
+    });
+
+    $("[name='type_of_client']").change(function() {
+        updateSubpointsOptions();
+        updateNextMeetingDateVisibility();
+    });
+
+    $("#category").change(function() {
+        updateNextMeetingDateVisibility();
+    });
+</script>
+
+
+
+
+
+  
+</body>
+</html>
+
+
+
+

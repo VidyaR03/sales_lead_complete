@@ -1,0 +1,135 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Executive</title>
+</head>
+<body>
+<h4>Map Existing Executives to Manager</h4>
+<form method="post">
+    {% csrf_token %}
+    <label for="manager">Select Manager:</label>
+    <select id="manager" name="manager">
+        {% for manager in managers %}
+            <option value="{{ manager.id }}">{{ manager.manager_name }}</option>
+        {% endfor %}
+    </select>
+    <br>
+    <label>Select Executives:</label>
+    {% for executive in executives %}
+        <input type="checkbox" name="executives" value="{{ executive.id }}"> {{ executive.ex_name }}<br>
+    {% endfor %}
+    <input type="submit" value="Map Executives">
+</form>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Executives to Manager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h4 {
+            margin-bottom: 10px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label, select, input[type="submit"] {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h4 style="display: block; text-align: center;">Map Existing Executives to Manager</h4>
+    <form method="post" id="map-form">
+        {% csrf_token %}
+        <label for="manager">Select Manager:</label>
+        <select id="manager" name="manager">
+            {% for manager in managers %}
+                <option value="{{ manager.id }}">{{ manager.manager_name }}</option>
+            {% endfor %}
+        </select>
+
+        <label>Select Executives:</label>
+        {% for executive in executives %}
+            <label>
+                <input type="checkbox" id="executive" name="executives" value="{{ executive.id }}"> {{ executive.ex_name }}
+            </label>
+        {% endfor %}
+        <!-- <select id="executive" name="executive">
+            {% for executive in executives %}
+            <option value="{{ executive.id }}">{{ executive.ex_name }}</option>
+            {% endfor %}
+        </select> -->
+
+        <input type="submit" value="Map Executives">
+    </form>
+  
+<!--     
+       <body>
+        <h4 style="display: block; text-align: center;">Map Existing Executives to Manager</h4>
+        <form method="post" id="map-form">
+            {% csrf_token %}
+            <label for="manager">Select Manager:</label>
+            <select id="manager" name="manager">
+                {% for manager in managers %}
+                    <option value="{{ manager.id }}">{{ manager.manager_name }}</option>
+                {% endfor %}
+            </select>
+    
+            <label>Select Executive:</label>
+            <select id="executive" name="executive">
+                {% for executive in executives %}
+                    <option value="{{ executive.id }}" data-branch="{{ executive.branch_list.branch_name }}">{{ executive.ex_name }}</option>
+                {% endfor %}
+            </select>
+    
+            <p>Selected Manager's Branch: <span id="manager-branch"></span></p>
+    
+            <input type="submit" value="Map Executives">
+        </form>
+    
+        <script>
+            const managerSelect = document.getElementById('manager');
+            const executiveSelect = document.getElementById('executive');
+            const managerBranch = document.getElementById('manager-branch');
+    
+            executiveSelect.addEventListener('change', function() {
+                const selectedExecutive = this.options[this.selectedIndex];
+                const executiveBranch = selectedExecutive.getAttribute('data-branch');
+                managerBranch.textContent = executiveBranch;
+            });
+    
+            // Optional: Initialize the manager branch display if an executive is already selected
+            const initialSelectedExecutive = executiveSelect.options[executiveSelect.selectedIndex];
+            if (initialSelectedExecutive) {
+                const initialExecutiveBranch = initialSelectedExecutive.getAttribute('data-branch');
+                managerBranch.textContent = initialExecutiveBranch;
+            }
+        </script>  -->
+    </body>
+    
+
+</html>

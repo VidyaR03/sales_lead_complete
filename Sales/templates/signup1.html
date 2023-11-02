@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<style>
+    /* Style for the popup form */
+    .popup-form {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #f9f9f9;
+        padding: 20px;
+        border: 1px solid #ddd;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        z-index: 9999;
+    }
+</style>
+<body>
+    <div class="modal-dialog">
+        <div class="modal-content" style="width: 700px; position: relative; right: 0%; left:5%; bottom: 50%; top:10px">
+            <form action="{% url 'update' customer.id %}" method="post">
+                {% csrf_token %}
+    
+                <div class="modal-header">
+                    <h4 class="modal-title"  style="color:brown; ">Edit :</h4>
+                    <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+                  </div>
+                  <div class="row g-3"style="width: 330px; padding-left: 30px; display: inline-block;">
+                      <div class="col">
+                        <label>ID</label>
+                        <input name="id" value="{{customer.id}}" type="text" class="form-control">
+                      </div>
+                      <div class="col">
+                        <label>Company Name</label>
+                        <input name="company_name" type="text" value="{{customer.company_name}}" class="form-control" required />
+                      </div>
+                      <div class="col">
+                        <label>Type of Client </label>
+                        <!-- <input name="type_of_client" type="text" value="{{customer.type_of_client}}" class="form-control" required> -->
+                        <select name="type_of_client" type="text" class="form-select" aria-label="Default select example"
+                        aria-invalid="false">
+                        <option value="">Select Option</option>
+      
+                        <option value="New Client">New Client</option>
+                        <option value="Existing Client">Existing Client</option>
+                        <option value="Decline Client">Decline Client</option>
+                      </select>
+                      </div>
+                      <div class="col">
+                        <label>Name</label>
+                        <input name="name" type="text"  value="{{customer.name}}" class="form-control" required>
+    
+                      </div>
+                      <div class="col">
+                        <label>Contact Detail</label>
+                        <input name="contact_detail" type="text" value="{{customer.contact_detail}}" class="form-control">
+                      </div>
+                      <div class="col">
+                        <label>Mail ID</label>
+                        <input name="mail_id" type="text" value="{{customer.mail_id}}" class="form-control">
+                      </div>
+                      <div class="col">
+                        <label for="bday">Meeting Date</label>
+                        <input class="form-control" type="date" id="meeting_date" value="{{ customer.meeting_date|date:'Y-m-d' }}" name="meeting_date" required>
+                      </div>
+                      
+                   
+                  </div>
+                  <div class="row g-3" style="width: 330px; display: inline-block; position: relative; bottom: 90px; top:0px">
+                    <div class="col">
+                        <label for="bday">Next Meeting Date</label>
+                        <input class="form-control" type="date" id="next_meeting_date" value="{{ customer.next_meeting_date|date:'Y-m-d' }}" name="next_meeting_date" required>
+                        <span class="validity"></span>
+                      </div>
+                      
+    
+                       <div class="col">
+                        <label>Nature of Business</label>
+                        <!-- <input name="nature_of_business" value="{{customer.nature_of_business}}" type="text" class="form-control"> -->
+                        <select name="nature_of_business" type="text" class="form-select" aria-label="Default select example"
+                        aria-invalid="false">
+                        <option value="">Select Option</option>
+        
+                        <option value="Manufacturer">Manufacturer</option>
+                        <option value="Supplier">supplier</option>
+                        <option value="Trader">Trader</option>
+                        <option value="Retail">Retail</option>
+          
+                        </select>            
+                      </div>
+                      <div class="col">
+                        <label>Status of Client</label>
+                        <!-- <input name="status_of_client" value="{{customer.status_of_client}}" type="text" class="form-control"> -->
+                        <select name="status_of_client" type="text" class="form-select" aria-label="Default select example"
+                                      aria-invalid="false">
+                          <option value="">Select Option</option>
+    
+                          <option value="Prospect">Prospect</option>
+                          <option value="Hot Prospect">Hot Prospect</option>
+                           <option value="Not Interested">Not Interested</option>
+    
+                         </select>    
+                      </div>
+                      <div class="col">
+                        <label>Package Sold</label>
+                        <input name="package_sold" value="{{customer.package_sold}}" type="text" class="form-control">
+                      </div>
+                      <div class="col">
+                        <label>Amount</label>
+                        <input name="amount" type="text" value="{{customer.amount}}" class="form-control">
+                      </div>
+                          <div class="col">
+                        <label for="bday">Activation Date</label>
+                        <input class="form-control" type="date" id="activation_date" value="{{ customer.activation_date|date:'Y-m-d' }}" name="activation_date" required>
+                      
+                      </div>
+                      <div class="col">
+                        <label for="bday">Renewal Date</label>
+                        <input class="form-control" type="date" id="renewal_date"  value="{{ customer.renewal_date|date:'Y-m-d' }}"name="renewal_date" required>
+                         
+                      </div>
+                    </div>
+                    <br><br>
+                  <div>
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                    <input type="submit" class="btn btn-info" value="Update">
+                    <!-- <button> <a href="{% url 'update' customer.id %}"> Update</a> </button> -->
+    
+                  </div>
+                </form>
+        </div>
+    </div>
+    <div>
+
+
+        <div id="remark-form" class="popup-form" style="margin-top: 100px; ">
+          <form action="{% url 'create_remark' %}" method="POST">
+            {% csrf_token %}
+                <label for="id">ID:</label><br>
+                <input type="hidden" name="id" value="{{ customer.id }}">
+                <label for="reason">Reason:</label><br>
+                <textarea name="reason" id="reason" rows="4" cols="40"></textarea><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div style="position: relative; bottom:800px; left: 400px;">
+          <div class="col-md-6" style="color:brown; display: block;">
+      
+          </div>
+          <div class="col-md-4" style="display: block; margin-left: 500px; top:170px; position: relative; ">
+        <table class="table" border="1" style="color:brown"><br>
+          <button onclick="toggleForm()"style="color:blue">Add Remark</button>
+      <br> &nbsp; &nbsp;
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Datetime</th>
+                    <th>Reason</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for remark in remark %}
+                <tr>
+                    <td>{{ remark.id }}</td>
+                    <td>{{ remark.user }}</td>
+                    <td>{{ remark.datetime }}</td>
+                    <td>{{ remark.reason }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+              </div>
+        </div>
+      </div>
+            </div>
+      <br>
+      <br>
+      <br>
+         
+      
+        
+        <script>
+            function toggleForm() {
+                var form = document.getElementById("remark-form");
+                form.style.display = form.style.display === "none" ? "block" : "none";
+            }
+        </script>
+        
+      
+</body>
+</html>
+
+
+

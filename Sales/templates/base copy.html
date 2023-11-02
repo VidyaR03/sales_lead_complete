@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Customer Data</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto%7CVarela+Round">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+  <script src="../../../static/js/demo.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+  <!-- pagination -->
+  <link rel="stylesheet" type="text/css" href="{% static 'customer.css' %}">
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.5.1/css/dataTables.dateTime.min.css">
+
+ 
+
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/datetime/1.5.1/js/dataTables.dateTime.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script> 
+   
+
+
+  <!-- navbar link -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bootstrap 5 Side Bar Navigation</title>
+  <!-- bootstrap 5 css -->
+  <!-- BOX ICONS CSS-->
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
+  <!-- custom css -->
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
+    
+
+
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto%7CVarela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+    <script src="../../../static/js/demo.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"></script>
+
+          <link rel="apple-touch-icon" href="{% static 'appassets/images/ico/apple-icon-120.png' %}">
+
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'appassets/images/logo/favicon.ico' %}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
+
+
+    <!-- data table library -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+
+    
+<style>
+body{
+
+background-color: #eee; 
+}
+
+table th , table td{
+text-align: center;
+}
+
+table tr:nth-child(even){
+background-color: #e4e3e3
+}
+
+th {
+background: #465365;
+color: #fff;
+}
+
+.pagination {
+margin: 0;
+
+}
+
+.pagination li:hover{
+cursor: pointer;
+}
+
+.header_wrap {
+padding:30px 0;
+}
+.num_rows {
+width: 20%;
+float:left;
+}
+.tb_search{
+width: 20%;
+float:right;
+}
+.pagination-container {
+width: 70%;
+float:left;
+
+}
+
+.rows_count {
+width: 20%;
+float:right;
+text-align:right;
+color: #999;
+}
+
+
+</style>
+
+  <style>
+    a {
+      color: black;
+    }
+/* Replace sorting icons with custom icons */
+.sorting {
+    background-image: url('custom-sort-asc-icon.png'); /* Replace with your up arrow icon */
+    background-repeat: no-repeat;
+    background-position: center right;
+}
+.sorting_asc {
+    background-image: url('custom-sort-desc-icon.png'); /* Replace with your down arrow icon */
+    background-repeat: no-repeat;
+    background-position: center right;
+}
+
+  /* Hide sorting icons */
+.sorting, .sorting_asc, .sorting_desc {
+    background-image: none !important;
+}
+ 
+ </style>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background-color: #fff;
+    }
+
+    .side-navbar {
+      width: 180px;
+      height: 100%;
+      position: fixed;
+      margin-left: -300px;
+      background-color: #021c3c;
+      transition: 0.5s;
+      color: #fff;
+      font-size: 10px;
+    }
+
+    .nav-link:active,
+    .nav-link:focus,
+    .nav-link:hover {
+      background-color: #10def024;
+      color: #fff;
+    }
+
+    .my-container {
+      transition: 0.4s;
+    }
+
+    .active-nav {
+      margin-left: 0;
+    }
+
+    /* For main section */
+    .active-cont {
+      margin-left: 180px;
+    }
+
+    #menu-btn {
+      background-color: #021c3c;
+      color: white;
+    }
+
+    .my-container input {
+      border-radius: 2rem;
+      padding: 2px 20px;
+    }
+
+    /* Media Queries for different views */
+
+    /* For mobile phones (portrait and landscape) */
+    @media only screen and (max-width: 767px) {
+
+      /* Add your CSS styles specific to mobile phones here */
+      /* For example, you can change font sizes or padding */
+      body {
+        font-size: 14px;
+        /* Adjust the font size for better readability on mobile */
+      }
+
+      .side-navbar {
+        font-size: 8px;
+        /* Adjust the font size of the side navbar for mobile */
+      }
+
+      /* You can add more styles specific to mobile view here */
+    }
+
+    /* For tablets (portrait and landscape) */
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      /* Add your CSS styles specific to tablets here */
+      /* For example, you can adjust the size or position of elements */
+    }
+
+    /* For laptops and larger screens */
+    @media only screen and (min-width: 992px) {
+      /* Add your CSS styles specific to laptops and larger screens here */
+      /* For example, you can modify the layout or margins */
+    }
+
+
+
+    /* Your other styles for the popup container and content */
+
+    /* Media query for tablets and larger */
+    @media screen and (min-width: 768px) {
+      .modal-content {
+        width: 600px;
+        /* Adjust the width as needed for tablets */
+        margin: 0 auto;
+        /* Center the modal horizontally */
+      }
+    }
+
+    /* Media query for mobile phones */
+    @media screen and (max-width: 767px) {
+      .modal-content {
+        width: 90%;
+        /* Make the modal almost full width on small screens */
+        margin: 30px auto;
+        /* Add some margin for better spacing */
+      }
+
+      .modal-body {
+        display: flex;
+        flex-wrap: wrap;
+        /* Allow the form elements to wrap to a new line */
+        justify-content: center;
+        /* Center the form elements within the modal */
+      }
+
+      .modal-body>div {
+        width: 100%;
+        /* Make each form section full width on mobile */
+      }
+
+      /* Adjust individual form elements as needed for mobile view */
+      .form-group {
+        width: 100%;
+      }
+
+      /* Add any other mobile-specific styling here */
+    }
+    .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+  </style>
+
+
+</head>
+
+<body>
+
+  <!-- Side-Nav -->
+  <div class="side-navbar active-nav d-flex justify-content-between flex-wrap flex-column" id="sidebar">
+    <img src="{% static 'Images/olatech_logo.jpg' %}" style="height: 40px; max-width:175px; margin-top: 20px;">
+    <ul class="nav flex-column text-white w-100"><br><br><br><br>
+
+      <a href="{% url 'customer_list' %}" class="nav-link h3 text-white my-2" style="font-size: 21px;">
+
+
+        <li class="nav-link">
+          <i class="bx bx-home-circle"></i>
+          <span class="mx-2">Sales Lead</span>
+        </li>
+      </a><br>
+      <a href="{% url 'branch_list' %}" class="nav-link h3 text-white my-2" style="font-size: 21px;">
+
+
+        <li class="nav-link">
+          <i class="bx bxs-dashboard"></i>
+          <span class="mx-2">Branch</span>
+        </li>
+      </a><br>
+      <a href="{% url 'manager_list' %}" class="nav-link h3 text-white my-2" style="font-size: 21px;">
+
+
+        <li class="nav-link">
+          <i class="bx bx-user-check"></i>
+          <span class="mx-2">Manager</span>
+        </li>
+      </a><br>
+     
+      <!-- <a href="{% url 'map_executives'%}" class="nav-link h3 text-white my-2">
+
+
+        <li class="nav-link">
+          <i class="bx bx-user-check"></i>
+          <span class="mx-2">Map Executive</span>
+        </li>
+      </a><br> -->
+      <a href="{% url 'executive_list' %}" class="nav-link h3 text-white my-2" style="font-size: 21px;">
+
+
+        <li class="nav-link">
+          <i class="bx bx-conversation"></i>
+          <span class="mx-2">Executive</span>
+        </li>
+      </a><br>
+      <a href="{% url 'staff'%}" class="nav-link h3 text-white my-2" style="font-size: 21px;">
+
+
+        <li class="nav-link">
+          <i class="bx bxs-user-circle"></i>
+          <span class="mx-2">Staff</span>
+        </li>
+      </a><br>
+      <a href="{% url 'user_list' %}" class="nav-link h3 text-white my-2" style="font-size: 21px;">
+
+
+        <li class="nav-link">
+          <i class="bx bxs-user"></i>
+          <span class="mx-2">Users</span>
+        </li>
+      </a><br>
+      <a href="{% url 'role_display' %}" class="nav-link h3 text-white my-2" style="font-size: 22px;">
+
+
+        <li class="nav-link">
+          <i class="bx bx-notepad"></i>
+          <span class="mx-2">Role</span>
+        </li>
+      </a>
+      <br>
+
+  </div>
+
+  <!-- Main Wrapper -->
+  <div class="my-container active-cont">
+    <!-- Top Nav -->
+    <nav class="navbar top-navbar navbar-light bg-light px-5">
+
+      <a class="btn border-0" id="menu-btn"><i class="bx bx-menu"></i></a>
+    </nav>
+
+
+    <!-- Table Content Start -->
+    <div class="text-right" style="margin-bottom: 10px;"> 
+
+      <button type="button" class="btn btn-secondary" data-bs-toggle="dropdown"
+        aria-expanded="false" >
+        Hello, {{ request.session.username }}
+      </button>
+      <a href="#addCustomerModal" class="btn btn-success" data-toggle="modal"><i class="material-icons" ></i>
+        <span  style="text-align: right ; margin-right: 5px; margin-bottom: 10px;">Add <i class="fa fa-plus"></i> </span></a>
+      <!-- <a href="#addCustomerModal" class="btn btn-success" data-toggle="modal"><i class="material-icons"></i>
+<span>Add </span></a> -->
+      <!-- <button type="submit" id="delete_btn" class="btn btn-danger">Delete</button> -->
+      <a href="{% url 'logout' %}" class="btn btn-primary" data-toggle="modal"><i class="material-icons"></i>
+        <span>Logout</span></a><br><br>
+
+    </div>
+   
+    <!-- 
+<table border="0" cellspacing="5" cellpadding="5">
+<tbody><tr>
+<td>Minimum date:</td>
+<td><input type="text" id="min" name="min"></td>
+</tr>
+<tr>
+<td>Maximum date:</td>
+<td><input type="text" id="max" name="max"></td>
+</tr>
+</tbody></table> -->
+<!-- <input type="text" id="search" placeholder="Type to search"><br> -->
+
+    <!-- <table border="0">
+      <tbody>
+        <tr>
+          <td>
+            <label for="min">Start date:</label>
+            <input type="date" id="min" name="min" class="form-control" >
+          </td>
+          <td style="padding-left: 20px;">
+            <label for="max">End date:</label>
+            <input type="date" id="max" name="max" class="form-control" >
+            
+
+          </td>
+        </tr>
+      </tbody>
+    </table> -->
+    
+    <div class="card">
+      <table border="0" cellspacing="5" cellpadding="5">
+        <tbody><tr>
+          <td>
+            <label for="min">Start Date:</label>
+            <input type="text" id="min" name="min" class="form-control" >
+          </td>
+          <td style="padding-left: 20px;">
+            <label for="max">End Date:</label>
+            <input type="text" id="max" name="max" class="form-control" >
+          </td>
+        </tr>
+    </tbody></table>
+    <br>
+
+    <div class="table-responsive">     
+      
+
+       
+      <table class="table table-striped table-class" id= "table" >
+
+      <thead>
+        <tr style="background-color:rgb(169, 192, 222);color:rgb(18, 16, 16);">
+          <!-- <th>
+        <span class="custom-checkbox">
+            <input type="checkbox" id="selectAll">
+            <label for="selectAll"></label>
+        </span>
+    </th> -->
+          <th>ID</th>
+          <th>Branch Name</th>
+          <th>Manager Name</th>
+          <th>Executive Name</th>
+          <th>Company Name</th>
+          <th>Type of Client</th>
+          <th>Client Status</th>
+          <th>Client Name</th>
+          <th>Contact No</th>
+          <th>Address</th>
+
+          <!-- <th>Mail ID</th> -->
+          <!-- <th>Nature of Business</th> -->
+          <th>Updation Date</th>
+          <th>Meeting Date</th>
+          <!-- <th>Status of Client</th> -->
+          <th>Next Meeting Date</th>
+          <!-- <th>Package Sold</th> -->
+          <th>Contract Value</th>
+          <th>Advance</th>
+          <th>Balance Payment</th>
+          <th>Activation Date</th>
+          <th>Renewal Date</th>
+          <!-- <th>Action</th> -->
+
+        </tr>
+      </thead>
+      <tbody>
+        {% for customer in page_obj %}
+        {% if current_date == customer.next_meeting_date %}
+        <tr style="background-color:rgb(241, 108, 108);" id="{{customer.id}}">
+          {% else %}
+        <tr id="{{customer.id}}" class="student-item">
+          {% endif %}
+          <!-- <td>
+        <input type="checkbox" name="change_id[]" id="delete_product" value="{{customer.id}}">
+
+    </td> -->
+          <td><a style="color: black;" href="{% url 'customer_detail' customer.id %}">{{ customer.id}}</a></td>
+          <td><a style="color: black;" href="{% url 'customer_detail' customer.id %}">{{ customer.branch_list }}</a>
+          </td>
+          <td><a style="color: black;" href="{% url 'customer_detail' customer.id %}">{{ customer.manager_name }}</a>
+          </td>
+          <td><a style="color: black;" href="{% url 'customer_detail' customer.id %}">{{ customer.ex_name }}</a></td>
+
+          <td><a style="color: black;" href="{% url 'customer_detail' customer.id %}">{{ customer.company_name }}</a>
+          </td>
+          <td><a style="color: black;" href="{% url 'customer_detail' customer.id %}">{{ customer.type_of_client }}</a>
+          </td>
+          <td><a style="color: black;" href="{% url 'customer_detail' customer.id %}">{{ customer.subpoints }}</a></td>
+          <td><a style="color: black;" href="{% url 'customer_detail' customer.id %}">{{ customer.name }}</a></td>
+          <td><a style="color: black;" href="{% url 'customer_detail' customer.id %}">{{ customer.contact_detail }}</a>
+          </td>
+          <td><a style="color: black;" href="{% url 'customer_detail' customer.id %}">{{ customer.address }}</a>
+            
+          </td>   
+          <td><a style="color: black;" href="{% url 'customer_detail' customer.id %}">{{ customer.updation_date|date:"Y-m-d H:i:s" }}</a></td>
+         
+      
+          
+          <td><a style="color: black;" href="{% url 'customer_detail' customer.id %}">{{ customer.meeting_date }}</a>
+          </td>
+          <!-- <td><a style="color: black;" href="{% url 'customer_detail' customer.id %}">{{ customer.status_of_client }}</a></td> -->
+          <td><a style="color: black;" href="{% url 'customer_detail' customer.id %}">{{ customer.next_meeting_date}}</a></td>
+          <!-- <td><a style="color: black;" href="{% url 'customer_detail' customer.id %}">{{ customer.package_sold }}</a></td> -->
+          <td><a style="color: black;" href="{% url 'customer_detail' customer.id %}">{{ customer.amount }}</a></td>
+          <td><a style="color: black;" href="{% url 'customer_detail' customer.id %}">{{ customer.add_advance }}</a>
+          </td>
+          <td><a style="color: black;" href="{% url 'customer_detail' customer.id %}">{{ customer.balance_payment }}</a>
+          </td>
+
+          <td><a style="color: black;" href="{% url 'customer_detail' customer.id %}">{{ customer.activation_date }}</a></td>
+          <td><a style="color: black;" href="{% url 'customer_detail' customer.id %}">{{ customer.renewal_date }}</a></td>
+           <!-- <td>
+        <a href="#editCustomerModal-{{customer.id}}" class="edit" data-toggle="modal"><i
+                class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+         </td>              -->
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+    
+
+
+  <div id="addCustomerModal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form action="{% url 'add' %}" method="post">
+          {% csrf_token %}
+          <div class="modal-header">
+            <h4 class="modal-title">Add Customer</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Branch Name</label>
+              <select name="branch_name" id="branch" class="form-control" aria-label="Default select example"
+                aria-invalid="false">
+                <option value="{{customer.branch_list}}">Select branch</option>
+
+                {% for i in branches %}
+                <option value="{{i.branch_name}}"> {{i.branch_name}}</option>
+                {% endfor %}
+              </select>
+
+
+            </div>
+            <div class="form-group">
+              <label>Manager Name</label>
+              <select name="manager_name" id="manageri_name" value="{{i.manager_name}}" class="form-control"
+                aria-label="Default select example" aria-invalid="false">
+                <option value="{{customer.manager_name}}">{{customer.manager_name}}</option>
+
+                {% for i in rm1 %}
+                <option value="{{i.manager_name}}"> {{i.manager_name}}</option>
+                {% endfor %}
+              </select>
+
+
+            </div>
+            <div class="form-group">
+              <label>Executive Name</label>
+              <select name="ex_name" id="ex_name" type="text" value="{{i.ex_name}}" class="form-control"
+                aria-label="Default select example" aria-invalid="false">
+                <option value="{{customer.ex_name}}">{{customer.ex_name}}</option>
+
+                {% for i in executives %}
+                <option value="{{i.ex_name}}"> {{i.ex_name}}</option>
+                {% endfor %}
+              </select>
+
+            </div>
+            
+
+            <div class="form-group">
+              <label>Company Name</label>
+              <input name="company_name" type="text" class="form-control" required />
+
+            </div>
+
+            <div class="form-group">
+              <label>Type of Client</label>
+              <select name="type_of_client" onChange="changecat(this.value);" class="form-control">
+                <option value="" disabled selected>Select Type of Client</option>
+                <option value="New_Client">New Client</option>
+                <option value="Existing_Client">Existing Client</option>
+              </select>
+            </div>
+ 
+            <div class="form-group">
+              <label>Status</label>
+              <select name="category" id="category" class="form-control">
+                <option value="" disabled selected>Select</option>
+              </select>
+            </div> 
+
+
+<!-- 
+            <div class="form-group" id="subpoints_group" >
+              <label for="category">Subpoints</label>
+              <select name="category" id="category" class="form-control">
+                  <option value="" disabled selected>Select Subpoint</option>
+              </select>
+          </div> -->
+
+ 
+            <div class="form-group">
+              <label> Client Name</label>
+              <input name="name" type="text" class="form-control" required>
+
+
+            </div> 
+            <div class="form-group">
+              <label>Contact No</label>
+              <input name="contact_detail" type="text" id="contact_detail" class="form-control"
+                oninput="validateContactNumber()">
+              <div id="contact_detail_message" style="display: none; color: red;">Contact number must be either 10 or 12
+                digits long.</div>
+            </div>
+
+
+
+            <div class="form-group">
+              <label>Mail ID</label>
+              <input name="mail_id" type="text" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label>Address</label>
+              <input name="address" type="text" class="form-control" required />
+
+            </div>
+          
+          
+            <div class="form-group">
+              <label for="bday">Meeting Date</label>
+
+              <input class="form-control" type="date" name="meeting_date" pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}" required>
+              <span class="validity"></span>
+            </div>
+            <div class="form-group">
+              <label for="bday">Next Meeting Date</label>
+              <input class="form-control" type="date" id="dt_end_date" name="next_meeting_date"
+                pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}" >
+              <span class="validity"></span>
+            </div>
+
+            <!-- <div class="form-group">
+    <label for="bday">Next Meeting Date</label>
+    <input class="form-control" type="date" id="dt_end_date" name="next_meeting_date" required>
+    <span class="validity"></span>
+  </div> -->
+
+            <!--start of right half -->
+
+            <!-- <div class="form-group">
+
+    <label>Nature of Business</label>
+    <select name="nature_of_business" type="text" class="form-control" aria-label="Default select example"
+    aria-invalid="false">
+    <option value="">Select Option</option>
+
+    <option value="Manufacturer">Manufacturer</option>
+    <option value="Supplier">supplier</option>
+    <option value="Trader">Trader</option>
+    <option value="Retail">Retail</option>
+
+    </select>            
+  </div> -->
+   
+
+            <!-- <div class="form-group">
+    <label>Package Sold</label>
+    <input name="package_sold" type="text" class="form-control">
+  </div> -->
+            <div class="form-group">
+              <label>contract Value</label>
+              <input name="amount" type="text" id="amount" class="form-control" oninput="validateAmount()">
+              <div id="amount_message" style="display: none; color: red;">Amount must be a numeric value.</div>
+            </div>          
+
+
+            <div class="form-group">
+              <label>Advance</label>
+              <input name="add_advance" id="add_advance" type="text" class="form-control" oninput="validateAdvance()">
+              <div id="advance_message" class="text-danger" style="display: none; color: red;">Enter a valid numeric
+                value for the advance.</div>
+            </div>
+
+            <div class="form-group">
+              <label>Balance Payment</label>
+              <input name="balance_payment" id="balance_payment" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="activation_date">Activation Date</label>
+              <input class="form-control" type="date" id="activation_date" name="activation_date" placeholder="YYYY-MM-DD">
+          </div>
+          <div class="form-group">
+              <label for="renewal_date">Renewal Date</label>
+              <input class="form-control" type="date" id="renewal_date" name="renewal_date" placeholder="YYYY-MM-DD">
+          </div>
+
+          <div class="modal-footer">
+            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+            <input type="submit" class="btn btn-success" value="Add">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
+
+
+  <!-- Delete Customer -->
+ 
+  <script>
+    $('#select-all').click(function (event) {
+      if (this.checked) {
+        // Iterate each checkbox
+        $(':checkbox').each(function () {
+          this.checked = true;
+        });
+      } else {
+        $(':checkbox').each(function () {
+          this.checked = false;
+        });
+      }
+    }); 
+  </script>
+
+ 
+  <script>
+    function filterByDateRange(startDate, endDate) {
+        let tableRows = document.querySelectorAll('#table tbody tr');
+
+        tableRows.forEach(row => {
+            let rowDate = new Date(row.cells[11].innerText); // Assuming the date is in the 12th cell
+
+            // Set the time to the beginning and end of the day for inclusive filtering
+            startDate.setHours(0, 0, 0, 0);
+            endDate.setHours(23, 59, 59, 999);
+
+            if (rowDate >= startDate && rowDate <= endDate) {
+                row.style.display = 'table-row';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    }
+
+    document.getElementById('searchBtn').addEventListener('click', () => {
+        let startDate = new Date(document.getElementById('min').value);
+        let endDate = new Date(document.getElementById('max').value);
+
+        if (!isNaN(startDate) && !isNaN(endDate)) {
+            filterByDateRange(startDate, endDate);
+        } else {
+            // If one of the dates is not valid or empty, show all rows
+            let tableRows = document.querySelectorAll('#table tbody tr');
+            tableRows.forEach(row => {
+                row.style.display = 'table-row';
+            });
+        }
+    });
+</script>
+  
+  <!-- Nav Bar -->
+  <script>
+    var menu_btn = document.querySelector("#menu-btn");
+    var sidebar = document.querySelector("#sidebar");
+    var container = document.querySelector(".my-container");
+    menu_btn.addEventListener("click", () => {
+      sidebar.classList.toggle("active-nav");
+      container.classList.toggle("active-cont");
+    });
+
+  </script>
+
+  
+<script>
+  $(function() {
+    var dtToday = new Date();
+
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+    if (month < 10)
+      month = '0' + month.toString();
+    if (day < 10)
+      day = '0' + day.toString();
+
+    var minDate = year + '-' + month + '-' + day;
+
+    $('#dt_end_date').attr('min', minDate);
+
+    // Function to update the minimum date of the Next Meeting Date field
+    function updateNextMeetingDateMinDate() {
+      var meetingDateValue = $('[name="meeting_date"]').val();
+      if (meetingDateValue) {
+        $('[name="next_meeting_date"]').attr('min', meetingDateValue);
+      } else {
+        $('[name="next_meeting_date"]').attr('min', minDate);
+      }
+    }
+
+    // Trigger the function when the page loads and when the Meeting Date field changes
+    $('[name="meeting_date"]').on('change', function() {
+      updateNextMeetingDateMinDate();
+    });
+
+    // Trigger the function on page load
+    updateNextMeetingDateMinDate();
+  });
+</script>
+
+
+  <!-- Get manager and executive from branch -->
+  <script>
+    const branchibranch = document.getElementById('branch');
+    const branchimanager_name = document.getElementById('manageri_name');
+    const branchiex_name = document.getElementById('ex_name');
+
+    branchibranch.addEventListener('change', () => {
+      const selectedOption = branchibranch.options[branchibranch.selectedIndex];
+
+      // Update the branch name field
+      const branchNameElement = document.querySelector("select[name='branch_name']");
+      branchNameElement.value = selectedOption.value;
+
+      // The code below remains unchanged
+      const selectedBranchID = selectedOption.value;
+      fetch(`/get_all_info/${selectedBranchID}`)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          branchimanager_name.value = data.manager;
+          branchiex_name.value = data.executive;
+        });
+    });
+
+  </script>
+
+
+
+
+
+  <script>
+    function validateAmount() {
+      const amountInput = document.getElementById('amount');
+      const amount = amountInput.value.trim();
+
+      if (/^\d+$/.test(amount)) {
+        document.getElementById('amount_message').style.display = 'none';
+      } else {
+        document.getElementById('amount_message').style.display = 'block';
+      }
+    }
+
+  </script>
+
+
+  <script>
+    function validateContactNumber() {
+      const contactNumberInput = document.getElementById('contact_detail');
+      const contactNumber = contactNumberInput.value;
+
+      if (contactNumber.length === 10 || contactNumber.length === 12) {
+        document.getElementById('contact_detail_message').style.display = 'none';
+      } else {
+        document.getElementById('contact_detail_message').style.display = 'block';
+      }
+    }
+
+
+
+  </script>
+
+  <script>
+    function validateAdvance() {
+      const advanceInput = document.getElementById('add_advance');
+      const advance = advanceInput.value.trim();
+
+      if (/^\d+$/.test(advance)) {
+        document.getElementById('advance_message').style.display = 'none';
+      } else {
+        document.getElementById('advance_message').style.display = 'block';
+      }
+    }
+
+  </script>
+    
+<script>
+    var mealsByCategory = {
+        New_Client: ["Interested", "Decline", "Converted", "To be called"],
+        Existing_Client: ["Same Package", "Upgraded"],
+    };
+
+    function updateSubpointsOptions() {
+        var typeOfClient = $("[name='type_of_client']").val();
+        var subpointsSelect = $("#category");
+
+        subpointsSelect.empty().append("<option value='' disabled selected>Select</option>");
+
+        if (typeOfClient) {
+            var subpoints = mealsByCategory[typeOfClient];
+            for (const subpoint of subpoints) {
+                subpointsSelect.append("<option>" + subpoint + "</option>");
+            }
+        }
+    }
+
+    function updateNextMeetingDateVisibility() {
+        var typeOfClient = $("[name='type_of_client']").val();
+        var selectedSubpoint = $("#category").val();
+        var nextMeetingDateField = $("#dt_end_date");
+
+        if (typeOfClient === "New_Client" && selectedSubpoint === "Decline") {
+            nextMeetingDateField.attr("disabled", "disabled").hide();
+        } else {
+            nextMeetingDateField.removeAttr("disabled").show();
+        }
+    }
+
+    // Trigger the functions when the page loads and on type_of_client change
+    $(document).ready(function() {
+        updateSubpointsOptions();
+        updateNextMeetingDateVisibility();
+    });
+
+    $("[name='type_of_client']").change(function() {
+        updateSubpointsOptions();
+        updateNextMeetingDateVisibility();
+    });
+
+    $("#category").change(function() {
+        updateNextMeetingDateVisibility();
+    });
+</script>
+
+<script>
+  let minDate, maxDate;
+
+  // Custom filtering function which will search data in column four between two values
+  DataTable.ext.search.push(function (settings, data, dataIndex) {
+    let min = minDate.val();
+    let max = maxDate.val();
+    let date = new Date(data[11]);
+
+    // Convert the minimum and maximum date strings to Date objects
+    let minDateObj = min ? new Date(min) : null;
+    let maxDateObj = max ? new Date(max) : null;
+
+    // Set the time to the beginning of the day for inclusive filtering
+    if (minDateObj) {
+      minDateObj.setHours(0, 0, 0, 0);
+    }
+    if (maxDateObj) {
+      maxDateObj.setHours(23, 59, 59, 999);
+    }
+
+    // Check if the date falls within the range (including the minimum and maximum dates)
+    if (
+      (minDateObj === null || date >= minDateObj) &&
+      (maxDateObj === null || date <= maxDateObj)
+    ) {
+      return true;
+    }
+
+    return false;
+  });
+
+
+  // Create date inputs
+  minDate = new DateTime('#min', {
+    format: 'MMMM Do YYYY'
+  });
+  maxDate = new DateTime('#max', {
+    format: 'MMMM Do YYYY'
+  });
+
+  // DataTables initialisation
+  let table = new DataTable('#table');
+
+  // Refilter the table
+  document.querySelectorAll('#min, #max').forEach((el) => {
+    el.addEventListener('change', () => table.draw());
+  });
+</script>
+
+
+<script>
+  $(document).ready(function() {
+      $('#table').DataTable();
+  });
+</script>
+
+</body>
+</html>

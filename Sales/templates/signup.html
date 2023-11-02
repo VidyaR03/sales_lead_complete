@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row d-flex justify-content-center align-items-center h-20">
+      <a class="navbar-brand" href="https://olatechs.com/"><img
+              src="{% static '/Images/ola.png' %}"
+              style=" margin-left: 10.5%; margin-bottom: 0px; margin-top: 5%; height: 130px; max-width: fit-content;"></a>
+      <h5 style="margin-top: 0px; margin-left: 1700px;"></h5>
+      <h1 style="color: rgb(226, 64, 43);">Sales Lead</h1>
+
+  </div>
+  <div style="margin-left: 480px;"><br>
+    <h3 style="color: brown;">Sign Up</h3>
+{% if error_message %}
+<p>{{ error_message }}</p>
+{% endif %}
+<form method="post">
+    {% csrf_token %}
+    <label for="username">Username:</label>
+    <br>
+    <input type="text" id="username" name="username" required><br>
+   
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" required><br><br>
+    <!-- <label for="confirm_password">Confirm Password:</label><br>
+    <input type="password" id="confirm_password" name="confirm_password" required><br><br>  -->
+    <button type="submit" class="btn btn-primary">Sign Up</button><br>
+</form>
+    <p>Already have an account? <a href="{% url 'login_page' %}">Sign In</a></p>
+    <a href="{% url 'check_email_exists' %}" class="btn btn-primary">Forgot Password</a>
+
+
+
+
+  </div>
+ 
+
+  
+</body>
+</html>
+
+<!-- <h2>Sign Up</h2>
+{% if error_message %}
+<p>{{ error_message }}</p>
+{% endif %}
+<form method="post">
+    {% csrf_token %}
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <label for="confirm_password">Confirm Password:</label>
+    <input type="password" id="confirm_password" name="confirm_password" required>
+    <button type="submit">Sign Up</button>
+</form> -->
